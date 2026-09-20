@@ -1,15 +1,26 @@
 export const SITE_CONFIG = {
   brandName: 'NEON OTO KURTARMA',
+  logoPath: '/images/neonlogonavbar.png',
   domain: 'https://neonotokurtarma.com',
   canonicalUrl: 'https://neonotokurtarma.com',
   phone: '0545 154 19 10',
   phoneRaw: '+905451541910',
   whatsappRaw: '905451541910',
+  email: 'neonotokurtarma@gmail.com',
   get phoneTelLink() {
     return `tel:${this.phoneRaw}`;
   },
   get whatsappLink() {
     return `https://wa.me/${this.whatsappRaw}`;
+  },
+  get emailLink() {
+    return `mailto:${this.email}`;
+  },
+  socialLinks: {
+    instagram: 'https://instagram.com/neonotokurtarma',
+    tiktok: 'https://tiktok.com/@neonotokurtarma',
+    youtube: 'https://youtube.com/@neonotokurtarma',
+    whatsapp: `https://wa.me/905451541910`,
   },
   location: {
     streetAddress: 'Çağ Sokak No:22',
@@ -21,6 +32,8 @@ export const SITE_CONFIG = {
     addressRegion: 'İstanbul',
     addressCountry: 'TR',
     formattedAddress: 'Çağ Sokak No:22, Zuhuratbaba, Bakırköy / İstanbul',
+    googleMapsUrl:
+      'https://maps.google.com/?q=%C3%87a%C4%9F+Sokak+No:22+Zuhuratbaba+Bak%C4%B1rk%C3%B6y+%C4%B0stanbul',
   },
   colors: {
     primary: '#00BF63',

@@ -23,6 +23,11 @@ export function constructMetadata({
     title,
     description,
     metadataBase: new URL(SITE_CONFIG.domain),
+    icons: {
+      icon: '/images/neonlogo.png',
+      shortcut: '/images/neonlogo.png',
+      apple: '/images/neonlogo.png',
+    },
     alternates: {
       canonical: canonicalUrl,
     },
