@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Playfair_Display } from 'next/font/google';
 import { SITE_CONFIG } from '@/data/site';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -6,6 +7,13 @@ import { Heading, Text } from '@/components/ui/Typography';
 import { Button } from '@/components/ui/Button';
 import { ImageWrapper } from '@/components/ui/ImageWrapper';
 import { WhatsappLocationButton } from '@/components/ui/WhatsappLocationButton';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  style: ['italic'],
+  weight: ['400', '600'],
+  display: 'swap',
+});
 
 export function HeroSection() {
   return (
@@ -17,7 +25,7 @@ export function HeroSection() {
           </Text>
 
           <Heading level="display">
-            Yolda kaldığınızda hareket devam eder.
+            Yolda kaldığınızda hareket <span className={`${playfair.className} italic font-normal tracking-normal text-[#00BF63]`}>devam eder.</span>
           </Heading>
 
           <Text variant="lead" className="max-w-2xl text-gray-700">
@@ -35,7 +43,7 @@ export function HeroSection() {
               variant="link"
               className="text-sm font-semibold py-2"
             >
-              WhatsApp ile Konum Gönder (7/24) &rarr;
+              Hızlı Konum Gönder (7/24) &rarr;
             </WhatsappLocationButton>
           </div>
         </div>

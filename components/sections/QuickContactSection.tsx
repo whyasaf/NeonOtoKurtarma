@@ -24,7 +24,7 @@ export function QuickContactSection() {
 
           <div>
             <WhatsappLocationButton variant="link" className="text-xs font-semibold uppercase tracking-wider">
-              WhatsApp Konum Gönder &rarr;
+              Hızlı Konum Gönder &rarr;
             </WhatsappLocationButton>
           </div>
         </div>

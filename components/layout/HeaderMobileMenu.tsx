@@ -66,7 +66,7 @@ export function HeaderMobileMenu({ navLinks }: HeaderMobileMenuProps) {
               Hemen Ara: {SITE_CONFIG.phone}
             </a>
             <WhatsappLocationButton variant="button" className="w-full min-h-[48px] text-center">
-              WhatsApp ile Konum Gönder (7/24)
+              Hızlı Konum Gönder (7/24)
             </WhatsappLocationButton>
           </div>
         </div>

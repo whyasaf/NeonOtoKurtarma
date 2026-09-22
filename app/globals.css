@@ -90,3 +90,39 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Rotating Neon Green Light Beam Animation */
+@keyframes spinBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.neon-border-spinner {
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 270deg,
+    rgba(0, 191, 99, 0.4) 310deg,
+    #00BF63 340deg,
+    #FFFFFF 355deg,
+    #00BF63 360deg
+  );
+  animation: spinBorder 6s linear infinite;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px #00BF63);
+}
+
+.group:hover .neon-border-spinner {
+  opacity: 1;
+}

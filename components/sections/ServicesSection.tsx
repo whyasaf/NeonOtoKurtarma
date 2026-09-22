@@ -18,13 +18,13 @@ export function ServicesSection() {
           </TextLink>
         </div>
 
-        {/* High-Contrast Typographic Editorial List */}
+        {/* High-Contrast Typographic Editorial List (3 Featured Services) */}
         <div className="border-t border-gray-200">
-          {SERVICES_DATA.map((service, index) => (
+          {SERVICES_DATA.slice(0, 3).map((service) => (
             <div key={service.id}>
               <div className="py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
-                <div className="md:col-span-1 text-xs font-semibold tracking-widest text-gray-400">
-                  0{index + 1}
+                <div className="md:col-span-1 text-xs font-semibold tracking-widest text-[#00BF63]">
+                  {service.number}
                 </div>
                 <div className="md:col-span-5 text-2xl md:text-3xl font-bold tracking-tight text-black">
                   {service.title}
@@ -33,8 +33,12 @@ export function ServicesSection() {
                   {service.shortDescription}
                 </div>
                 <div className="md:col-span-2 text-left md:text-right">
-                  <TextLink href="/hizmetler" variant="subtle" className="text-xs font-semibold uppercase tracking-wider">
-                    İncele
+                  <TextLink
+                    href={`/hizmetler#${service.slug}`}
+                    variant="subtle"
+                    className="text-xs font-semibold uppercase tracking-wider hover:text-[#00BF63] transition-colors"
+                  >
+                    İncele &rarr;
                   </TextLink>
                 </div>
               </div>

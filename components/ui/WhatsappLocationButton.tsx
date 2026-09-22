@@ -70,7 +70,7 @@ export function WhatsappLocationButton({
       ? 'cursor-pointer'
       : 'text-sm md:text-base font-semibold text-black hover:text-[#00BF63] underline underline-offset-8 transition-colors cursor-pointer';
 
-  const defaultContent = label || (loading ? 'Konum Alınıyor...' : 'Konumumu WhatsApp\'tan Gönder \u2192');
+  const defaultContent = label || (loading ? 'Konum Alınıyor...' : 'Hızlı Konum Gönder \u2192');
 
   return (
     <div className={variant === 'raw' ? 'inline-block' : 'space-y-1.5 inline-block'}>

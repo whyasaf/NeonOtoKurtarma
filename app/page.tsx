@@ -2,7 +2,6 @@ import { constructMetadata } from '@/lib/seo';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { QuickContactSection } from '@/components/sections/QuickContactSection';
 import { ServicesSection } from '@/components/sections/ServicesSection';
-import { OperationalFocusSection } from '@/components/sections/OperationalFocusSection';
 import { LocationContactSection } from '@/components/sections/LocationContactSection';
 import { FinalCtaSection } from '@/components/sections/FinalCtaSection';
 
@@ -19,7 +18,6 @@ export default function HomePage() {
       <HeroSection />
       <QuickContactSection />
       <ServicesSection />
-      <OperationalFocusSection />
       <LocationContactSection />
       <FinalCtaSection />
     </>

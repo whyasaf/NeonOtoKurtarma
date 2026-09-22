@@ -1,4 +1,5 @@
 import { SITE_CONFIG } from '@/data/site';
+import { SERVICES_DATA } from '@/data/services';
 import { constructMetadata } from '@/lib/seo';
 import { Container } from '@/components/ui/Container';
 import { FaqAccordion } from '@/components/services/FaqAccordion';
@@ -10,44 +11,6 @@ export const metadata = constructMetadata({
     'NEON Oto Kurtarma 7/24 oto kurtarma ve yol yardım hizmetleri: Arıza/kaza çekici, VIP transfer, akü takviye, lastik değişimi ve yakıt desteği.',
   path: '/hizmetler',
 });
-
-const SERVICES_DATA = [
-  {
-    id: '01',
-    title: 'ARIZA / KAZA',
-    meta: ['7/24 DESTEK', 'İSTANBUL'],
-    description:
-      'Arızalanan veya kaza yapan araçların güvenli şekilde bulunduğu noktadan alınarak ihtiyaç duyulan adrese taşınmasını sağlıyoruz. Profesyonel ekip ve uygun çekici ekipmanlarıyla araç taşıma sürecini güvenli şekilde yönetiyoruz.',
-  },
-  {
-    id: '02',
-    title: 'VIP TRANSFER',
-    meta: ['ÖZEL ARAÇ TAŞIMA', 'ŞEHİRLER ARASI'],
-    description:
-      'Değerli ve lüks araçların şehirler arası taşınması için özel taşıma hizmeti sunuyoruz. Aracın değerine ve taşıma koşullarına uygun ekipman ve özenli operasyon anlayışıyla güvenli nakil sağlıyoruz.',
-  },
-  {
-    id: '03',
-    title: 'AKÜ TAKVİYE',
-    meta: ['SAHA MÜDAHALESİ', '7/24'],
-    description:
-      'Aküsü biten araçlar için bulunduğunuz noktada akü takviye desteği sağlıyoruz. Uygun ekipmanla gerçekleştirilen müdahale sayesinde aracınızın yeniden çalıştırılmasına yardımcı oluyoruz.',
-  },
-  {
-    id: '04',
-    title: 'LASTİK DEĞİŞİMİ',
-    meta: ['YOL YARDIM', 'SAHA DESTEĞİ'],
-    description:
-      'Patlayan veya hasar gören lastiklerde bulunduğunuz noktaya ulaşarak gerekli lastik değişimi desteğini sağlıyoruz. Amaç, yolda geçirdiğiniz süreyi mümkün olduğunca azaltarak güvenli şekilde hareket etmenizi sağlamak.',
-  },
-  {
-    id: '05',
-    title: 'YAKIT DESTEĞİ',
-    meta: ['7/24 DESTEK', 'SAHA MÜDAHALESİ'],
-    description:
-      'Yakıtı tükenen araçlar için bulunduğunuz konuma ulaşarak yakıt desteği sağlıyoruz. Gerekli desteğin ardından yolculuğumuza devam edebilmeniz için hızlı ve pratik bir çözüm sunuyoruz.',
-  },
-];
 
 const PROCESS_STEPS = [
   {
@@ -113,12 +76,13 @@ export default function HizmetlerPage() {
             {SERVICES_DATA.map((service) => (
               <div
                 key={service.id}
-                className="border-b border-[#E5E5E5] pb-16 md:pb-24 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start"
+                id={service.slug}
+                className="border-b border-[#E5E5E5] pb-16 md:pb-24 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start scroll-mt-28"
               >
                 {/* Number & Title */}
                 <div className="lg:col-span-5 space-y-3">
                   <span className="text-3xl md:text-4xl font-extrabold text-[#00BF63] block">
-                    {service.id}
+                    {service.number}
                   </span>
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-black">
                     {service.title}

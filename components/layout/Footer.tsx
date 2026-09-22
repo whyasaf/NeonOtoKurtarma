@@ -158,7 +158,7 @@ export function Footer() {
                   variant="raw"
                   className="hover:text-black transition-colors block text-sm md:text-base font-semibold text-left text-white/90"
                 >
-                  WhatsApp&apos;tan Konum Gönder &rarr;
+                  Hızlı Konum Gönder &rarr;
                 </WhatsappLocationButton>
               </div>
             </div>

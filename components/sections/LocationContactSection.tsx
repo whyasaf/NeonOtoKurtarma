@@ -43,7 +43,7 @@ export function LocationContactSection() {
                 WHATSAPP ANLIK KONUM
               </Text>
               <WhatsappLocationButton variant="link" className="text-base font-semibold">
-                WhatsApp ile Konum Gönder &rarr;
+                Hızlı Konum Gönder &rarr;
               </WhatsappLocationButton>
             </div>
           </div>

@@ -22,6 +22,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="tr" className={plusJakarta.className}>
       <head>
+        <link rel="icon" href="/images/neonlogo.png?v=2" type="image/png" />
+        <link rel="shortcut icon" href="/images/neonlogo.png?v=2" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/neonlogo.png?v=2" />
         <StructuredData />
       </head>
       <body className="min-h-screen flex flex-col bg-white text-black antialiased">

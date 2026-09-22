@@ -12,7 +12,7 @@ export function Header() {
   ];
 
   const rightLinks = [
-    { label: 'Sosyal Medya', href: SITE_CONFIG.socialLinks.instagram, external: true },
+    { label: 'Sosyal Medya', href: '/sosyal-medya' },
     { label: 'İletişim', href: '/iletisim' },
   ];
 
@@ -61,23 +61,12 @@ export function Header() {
               <ul className="flex items-center space-x-8 text-xs font-semibold tracking-wider uppercase text-gray-800">
                 {rightLinks.map((link) => (
                   <li key={link.label}>
-                    {link.external ? (
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-black hover:underline underline-offset-8 decoration-1 transition-colors"
-                      >
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className="hover:text-black hover:underline underline-offset-8 decoration-1 transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    )}
+                    <Link
+                      href={link.href}
+                      className="hover:text-black hover:underline underline-offset-8 decoration-1 transition-colors"
+                    >
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
