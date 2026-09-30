@@ -29,20 +29,38 @@ export function HeroSection() {
             {SITE_CONFIG.brandName}, İstanbul ve Bakırköy genelinde 7/24 oto çekici, araç kurtarma ve acil yol yardım operasyonlarını kesintisiz sürdürür.
           </Text>
 
-          {/* Restrained CTA Hierarchy: Main Green Phone Button + WhatsApp Button */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 pt-2 md:pt-4 w-full sm:w-auto">
-            <TrackedPhoneLink location="hero" className="w-full sm:w-auto">
+          {/* Restrained CTA Hierarchy: Mobile vs Desktop Layout */}
+          {/* Mobile View (sm:hidden): Top Green Box for Location + Centered Black Phone Text Below */}
+          <div className="flex flex-col gap-3 pt-2 w-full sm:hidden items-center text-center">
+            <WhatsappLocationButton
+              variant="button"
+              className="w-full min-h-[52px] px-6 text-base font-extrabold text-white bg-[#00BF63] hover:bg-[#00a857] transition-colors rounded-none flex items-center justify-center gap-2 shadow-md"
+            >
+              Hızlı Konum Gönder (7/24) &rarr;
+            </WhatsappLocationButton>
+
+            <TrackedPhoneLink
+              location="hero"
+              className="w-full text-center py-2 text-xl font-extrabold text-black hover:text-[#00BF63] transition-colors tracking-tight block"
+            >
+              {SITE_CONFIG.phone}
+            </TrackedPhoneLink>
+          </div>
+
+          {/* Desktop View (hidden sm:flex): Green Phone Button + WhatsApp Link */}
+          <div className="hidden sm:flex sm:flex-row items-center gap-6 pt-4 w-auto">
+            <TrackedPhoneLink location="hero" className="w-auto">
               <Button
                 variant="accent"
                 size="lg"
-                className="w-full sm:w-auto min-h-[52px] bg-[#00BF63] hover:bg-[#00a857] text-white border-none font-bold text-base md:text-lg"
+                className="min-h-[52px] bg-[#00BF63] hover:bg-[#00a857] text-white border-none font-bold text-lg px-8"
               >
-                0545 154 19 10
+                {SITE_CONFIG.phone}
               </Button>
             </TrackedPhoneLink>
             <WhatsappLocationButton
               variant="button"
-              className="w-full sm:w-auto min-h-[52px] sm:min-h-0 px-6 sm:px-0 text-sm sm:text-sm font-bold sm:font-semibold text-white sm:text-black bg-[#00BF63] sm:bg-transparent hover:bg-[#00a857] sm:hover:bg-transparent sm:hover:text-[#00BF63] transition-colors rounded-none flex items-center justify-center gap-2 shadow-sm sm:shadow-none"
+              className="min-h-0 px-0 text-sm font-semibold text-black hover:text-[#00BF63] transition-colors rounded-none flex items-center justify-center gap-2 shadow-none bg-transparent hover:bg-transparent"
             >
               Hızlı Konum Gönder (7/24) &rarr;
             </WhatsappLocationButton>

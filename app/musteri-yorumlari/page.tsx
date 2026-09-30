@@ -7,6 +7,7 @@ import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Text } from '@/components/ui/Typography';
 import { WhatsappLocationButton } from '@/components/ui/WhatsappLocationButton';
+import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -256,22 +257,34 @@ export default function MusteriYorumlariPage() {
               7/24 kesintisiz saha ekibimiz ortalama 20 dakika içinde konumunuza ulaşarak acil yol yardım ve çekici desteği sağlar.
             </p>
 
-            <div className="flex flex-col-reverse sm:flex-row items-center justify-center gap-4 pt-2">
-              <a
-                href={SITE_CONFIG.phoneTelLink}
-                className="text-xs font-bold text-white bg-[#00BF63] hover:bg-[#00a857] px-4 py-2 sm:hidden transition-colors"
-              >
-                Hemen Ara: 0545 154 19 10 &rarr;
-              </a>
-              <a
-                href={SITE_CONFIG.phoneTelLink}
-                className="hidden sm:inline-block bg-[#00BF63] hover:bg-[#00a857] text-white font-extrabold px-8 py-4 text-sm uppercase tracking-wider transition-colors"
-              >
-                {SITE_CONFIG.phone}
-              </a>
+            {/* Mobile View (sm:hidden): Top Green Box for Location + Centered Black Phone Text Below */}
+            <div className="flex flex-col gap-3 pt-4 w-full sm:hidden items-center text-center">
               <WhatsappLocationButton
                 variant="button"
-                className="w-full sm:w-auto min-h-[50px] px-6 text-sm font-bold text-white bg-[#00BF63] hover:bg-[#00a857] transition-colors rounded-none flex items-center justify-center gap-2 shadow-sm"
+                className="w-full min-h-[52px] px-6 text-base font-extrabold text-white bg-[#00BF63] hover:bg-[#00a857] transition-colors rounded-none flex items-center justify-center gap-2 shadow-md"
+              >
+                Hızlı Konum Gönder (7/24) &rarr;
+              </WhatsappLocationButton>
+
+              <TrackedPhoneLink
+                location="musteri_yorumlari_bottom"
+                className="w-full text-center py-2 text-xl font-extrabold text-black hover:text-[#00BF63] transition-colors tracking-tight block"
+              >
+                {SITE_CONFIG.phone}
+              </TrackedPhoneLink>
+            </div>
+
+            {/* Desktop View (hidden sm:flex): Green Phone Button + WhatsApp Button */}
+            <div className="hidden sm:flex sm:flex-row items-center justify-center gap-4 pt-2">
+              <TrackedPhoneLink
+                location="musteri_yorumlari_bottom"
+                className="inline-block bg-[#00BF63] hover:bg-[#00a857] text-white font-extrabold px-8 py-4 text-sm uppercase tracking-wider transition-colors"
+              >
+                {SITE_CONFIG.phone}
+              </TrackedPhoneLink>
+              <WhatsappLocationButton
+                variant="button"
+                className="w-auto min-h-[50px] px-6 text-sm font-bold text-white bg-[#00BF63] hover:bg-[#00a857] transition-colors rounded-none flex items-center justify-center gap-2 shadow-sm"
               >
                 Hızlı Konum Gönder (7/24) &rarr;
               </WhatsappLocationButton>

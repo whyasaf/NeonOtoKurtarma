@@ -6,6 +6,7 @@ import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { FaqAccordion } from '@/components/services/FaqAccordion';
 import { WhatsappLocationButton } from '@/components/ui/WhatsappLocationButton';
+import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -57,12 +58,30 @@ export default function HizmetlerPage() {
               Oto kurtarma, çekici, akü takviye ve acil yol yardım hizmetlerinde 7/24 kesintisiz saha desteği.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-6">
-              <a href={SITE_CONFIG.phoneTelLink} className="w-full sm:w-auto">
-                <Button variant="accent" size="lg" className="w-full sm:w-auto min-h-[52px] bg-[#00BF63] hover:bg-[#00a857] text-white border-none">
-                  0545 154 19 10
+            {/* Mobile View (sm:hidden): Top Green Box for Location + Centered Black Phone Text Below */}
+            <div className="flex flex-col gap-3 pt-4 w-full sm:hidden items-center text-center">
+              <WhatsappLocationButton
+                variant="button"
+                className="w-full min-h-[52px] px-6 text-base font-extrabold text-white bg-[#00BF63] hover:bg-[#00a857] transition-colors rounded-none flex items-center justify-center gap-2 shadow-md"
+              >
+                Hızlı Konum Gönder (7/24) &rarr;
+              </WhatsappLocationButton>
+
+              <TrackedPhoneLink
+                location="hizmetler_hero"
+                className="w-full text-center py-2 text-xl font-extrabold text-black hover:text-[#00BF63] transition-colors tracking-tight block"
+              >
+                {SITE_CONFIG.phone}
+              </TrackedPhoneLink>
+            </div>
+
+            {/* Desktop View (hidden sm:flex): Green Phone Button + WhatsApp Link */}
+            <div className="hidden sm:flex sm:flex-row items-center gap-6 pt-6">
+              <TrackedPhoneLink location="hizmetler_hero" className="w-auto">
+                <Button variant="accent" size="lg" className="min-h-[52px] bg-[#00BF63] hover:bg-[#00a857] text-white border-none">
+                  {SITE_CONFIG.phone}
                 </Button>
-              </a>
+              </TrackedPhoneLink>
               <WhatsappLocationButton variant="link" className="text-sm font-semibold py-2">
                 Hızlı Konum Gönder (7/24) &rarr;
               </WhatsappLocationButton>
@@ -178,13 +197,31 @@ export default function HizmetlerPage() {
               {'YOLDA KALDIĞINIZDA\nBİZE ULAŞIN.'}
             </h2>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-4">
-              <a
-                href={SITE_CONFIG.phoneTelLink}
+            {/* Mobile View (sm:hidden): Top Green Box for Location + Centered Black Phone Text Below */}
+            <div className="flex flex-col gap-3 pt-4 w-full sm:hidden items-center text-center">
+              <WhatsappLocationButton
+                variant="button"
+                className="w-full min-h-[52px] px-6 text-base font-extrabold text-white bg-[#00BF63] hover:bg-[#00a857] transition-colors rounded-none flex items-center justify-center gap-2 shadow-md"
+              >
+                Hızlı Konum Gönder (7/24) &rarr;
+              </WhatsappLocationButton>
+
+              <TrackedPhoneLink
+                location="hizmetler_bottom"
+                className="w-full text-center py-2 text-xl font-extrabold text-black hover:text-[#00BF63] transition-colors tracking-tight block"
+              >
+                {SITE_CONFIG.phone}
+              </TrackedPhoneLink>
+            </div>
+
+            {/* Desktop View (hidden sm:flex): Green Phone Button + WhatsApp Link */}
+            <div className="hidden sm:flex sm:flex-row items-center gap-6 pt-4">
+              <TrackedPhoneLink
+                location="hizmetler_bottom"
                 className="bg-[#00BF63] hover:bg-[#00a857] text-white font-bold px-8 py-4 text-base md:text-lg tracking-wide transition-colors inline-block text-center"
               >
                 {SITE_CONFIG.phone}
-              </a>
+              </TrackedPhoneLink>
               <WhatsappLocationButton
                 variant="link"
                 className="text-sm md:text-base font-semibold text-black hover:text-[#00BF63] transition-colors"

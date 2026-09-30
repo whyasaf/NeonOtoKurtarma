@@ -11,7 +11,25 @@ export function QuickContactSection() {
       <Container size="default">
         <Divider margin="none" className="mb-8" />
         
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 py-4 text-center md:text-left">
+        {/* Mobile View (md:hidden): Top Green Box for Location + Centered Black Phone Text Below */}
+        <div className="flex flex-col gap-3 py-2 md:hidden items-center text-center">
+          <WhatsappLocationButton
+            variant="button"
+            className="w-full min-h-[52px] px-6 text-base font-extrabold text-white bg-[#00BF63] hover:bg-[#00a857] transition-colors rounded-none flex items-center justify-center gap-2 shadow-md"
+          >
+            Hızlı Konum Gönder (7/24) &rarr;
+          </WhatsappLocationButton>
+
+          <TrackedPhoneLink
+            location="quick_contact"
+            className="w-full text-center py-2 text-xl font-extrabold text-black hover:text-[#00BF63] transition-colors tracking-tight block"
+          >
+            {SITE_CONFIG.phone}
+          </TrackedPhoneLink>
+        </div>
+
+        {/* Desktop View (hidden md:flex): Green Phone Button + WhatsApp Link */}
+        <div className="hidden md:flex md:flex-row items-center justify-between gap-6 py-4 text-left">
           <TrackedPhoneLink
             location="quick_contact"
             className="inline-block bg-[#00BF63] hover:bg-[#00a857] text-white font-extrabold px-6 py-3 text-lg md:text-xl tracking-tight transition-colors"
