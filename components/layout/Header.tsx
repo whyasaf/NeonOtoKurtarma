@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { SITE_CONFIG } from '@/data/site';
 import { Container } from '@/components/ui/Container';
+import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { HeaderMobileMenu } from '@/components/layout/HeaderMobileMenu';
 
 export function Header() {
@@ -28,7 +29,7 @@ export function Header() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="hover:text-black hover:underline underline-offset-8 decoration-1 transition-colors"
+                    className="hover:text-black transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -41,7 +42,7 @@ export function Header() {
           <div className="flex items-center justify-center">
             <Link
               href="/"
-              className="flex items-center hover:opacity-85 transition-opacity"
+              className="flex items-center hover:opacity-85 transition-opacity cursor-pointer"
               aria-label={SITE_CONFIG.brandName}
             >
               <Image
@@ -63,7 +64,7 @@ export function Header() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="hover:text-black hover:underline underline-offset-8 decoration-1 transition-colors"
+                      className="hover:text-black transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -72,12 +73,12 @@ export function Header() {
               </ul>
             </nav>
 
-            <a
-              href={SITE_CONFIG.phoneTelLink}
+            <TrackedPhoneLink
+              location="header"
               className="text-xs font-bold text-black hover:text-[#00BF63] transition-colors border-l border-gray-200 pl-6"
             >
               {SITE_CONFIG.phone}
-            </a>
+            </TrackedPhoneLink>
           </div>
         </div>
 
@@ -85,7 +86,7 @@ export function Header() {
         <div className="flex md:hidden items-center justify-between">
           <Link
             href="/"
-            className="flex items-center hover:opacity-85 transition-opacity"
+            className="flex items-center hover:opacity-85 transition-opacity cursor-pointer"
             aria-label={SITE_CONFIG.brandName}
           >
             <Image
@@ -100,6 +101,7 @@ export function Header() {
 
           <HeaderMobileMenu
             navLinks={[
+              { label: 'Ana Sayfa', href: '/' },
               ...leftLinks,
               ...rightLinks.map((l) => ({ label: l.label, href: l.href })),
             ]}

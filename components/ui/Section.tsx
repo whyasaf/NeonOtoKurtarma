@@ -11,11 +11,11 @@ export interface SectionProps extends HTMLAttributes<HTMLElement> {
 
 const paddingClasses: Record<SectionPadding, string> = {
   none: 'py-0',
-  sm: 'py-8 md:py-12',
-  md: 'py-16 md:py-24',
-  lg: 'py-20 md:py-32',
-  xl: 'py-28 md:py-40',
-  '2xl': 'py-32 md:py-48',
+  sm: 'py-6 md:py-12',
+  md: 'py-10 md:py-24',
+  lg: 'py-12 md:py-32',
+  xl: 'py-14 md:py-40',
+  '2xl': 'py-16 md:py-48',
 };
 
 export function Section({

@@ -10,9 +10,9 @@ export interface ContainerProps extends HTMLAttributes<HTMLElement> {
 }
 
 const containerClasses: Record<ContainerSize, string> = {
-  narrow: 'container-narrow px-6',
-  default: 'container-default px-6',
-  wide: 'container-wide px-6',
+  narrow: 'container-narrow px-4 sm:px-6',
+  default: 'container-default px-4 sm:px-6',
+  wide: 'container-wide px-4 sm:px-6',
 };
 
 export function Container({

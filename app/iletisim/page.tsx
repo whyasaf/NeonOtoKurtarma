@@ -1,8 +1,17 @@
 import Image from 'next/image';
+import { Playfair_Display } from 'next/font/google';
 import { SITE_CONFIG } from '@/data/site';
 import { constructMetadata } from '@/lib/seo';
 import { Container } from '@/components/ui/Container';
+import { Button } from '@/components/ui/Button';
 import { WhatsappLocationButton } from '@/components/ui/WhatsappLocationButton';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  style: ['italic'],
+  weight: ['400', '600'],
+  display: 'swap',
+});
 
 export const metadata = constructMetadata({
   title: 'İletişim & Lokasyon | NEON Oto Kurtarma',
@@ -15,25 +24,25 @@ export default function IletisimPage() {
   return (
     <main className="bg-white text-black min-h-screen">
       {/* 1. Hero Section */}
-      <section className="pt-16 md:pt-24 lg:pt-32 pb-14 md:pb-20">
+      <section className="pt-16 md:pt-24 lg:pt-32 pb-14 md:pb-20 border-b border-[#E5E5E5]">
         <Container size="wide">
           <div className="max-w-4xl space-y-6">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-black leading-[1.1]">
-              İhtiyacınız olduğunda, buradayız.
+              İhtiyacınız olduğunda, <span className={`${playfair.className} italic font-normal tracking-normal text-[#00BF63]`}>buradayız.</span>
             </h1>
             <p className="text-lg md:text-xl text-[#555555] leading-relaxed max-w-2xl font-normal pt-2">
-              Bulunduğunuz konumu ve ihtiyacınızı bize iletin. Size uygun desteği sağlayalım.
+              Bulunduğunuz konumu ve ihtiyacınızı bize iletin. Size 7/24 en yakın ekibimizle anında yardım ulaştıralım.
             </p>
 
-            {/* Editorial Typographic Actions & WhatsApp GPS Location Prototype */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-6">
-              <a
-                href={SITE_CONFIG.phoneTelLink}
-                className="bg-[#00BF63] hover:bg-[#00a857] text-white font-bold px-8 py-4 text-base tracking-wide transition-colors inline-block text-center"
-              >
-                {SITE_CONFIG.phone}
+              <a href={SITE_CONFIG.phoneTelLink} className="w-full sm:w-auto">
+                <Button variant="accent" size="lg" className="w-full sm:w-auto min-h-[52px] bg-[#00BF63] hover:bg-[#00a857] text-white border-none">
+                  0545 154 19 10
+                </Button>
               </a>
-              <WhatsappLocationButton variant="link" />
+              <WhatsappLocationButton variant="link" className="text-sm font-semibold py-2">
+                Hızlı Konum Gönder (7/24) &rarr;
+              </WhatsappLocationButton>
             </div>
           </div>
         </Container>
@@ -50,9 +59,6 @@ export default function IletisimPage() {
             {/* Column 1: Company & Official Address */}
             <div className="space-y-6 max-w-lg">
               <div>
-                <p className="text-xs font-semibold tracking-wider text-[#666666] uppercase mb-2">
-                  
-                </p>
                 <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-black uppercase mb-3">
                   NEON OTO KURTARMA
                 </h2>
@@ -124,7 +130,7 @@ export default function IletisimPage() {
                 href={SITE_CONFIG.location.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm md:text-base font-semibold text-black hover:text-[#00BF63] underline underline-offset-8 transition-colors inline-block"
+                className="text-sm md:text-base font-semibold text-black hover:text-[#00BF63] transition-colors inline-block"
               >
                 Google Maps&apos;te Yol Tarifi Al &rarr;
               </a>
@@ -154,7 +160,7 @@ export default function IletisimPage() {
               <div>
                 <a
                   href={SITE_CONFIG.phoneTelLink}
-                  className="inline-flex items-center text-base md:text-lg font-bold text-[#00BF63] hover:underline gap-2 group"
+                  className="inline-flex items-center text-base md:text-lg font-bold text-[#00BF63] gap-2 group"
                 >
                   <span>Ara</span>
                   <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
@@ -193,7 +199,7 @@ export default function IletisimPage() {
               <div>
                 <a
                   href={SITE_CONFIG.emailLink}
-                  className="inline-flex items-center text-base md:text-lg font-bold text-[#00BF63] hover:underline gap-2 group whitespace-nowrap"
+                  className="inline-flex items-center text-base md:text-lg font-bold text-[#00BF63] gap-2 group whitespace-nowrap"
                 >
                   <span>E-Posta Gönder</span>
                   <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>

@@ -61,7 +61,7 @@ const FAQ_ITEMS: FaqItem[] = [
     id: 'faq-9',
     question: 'Çekici hizmeti dışında yol yardım hizmeti de veriyor musunuz?',
     answer:
-      'Evet. Akü takviyesi, lastik değişimi ve yakıt desteği gibi yol yardım hizmetleri de sunuyoruz.',
+      'Evet. Akü takviyesi ve lastik değişimi gibi yol yardım hizmetleri de sunuyoruz.',
   },
   {
     id: 'faq-10',

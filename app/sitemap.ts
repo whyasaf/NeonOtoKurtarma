@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/galeri',
     '/hakkimizda',
     '/musteri-yorumlari',
+    '/sosyal-medya',
     '/iletisim',
   ];
 

@@ -1,17 +1,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { SITE_CONFIG } from '@/data/site';
+import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { Container } from '@/components/ui/Container';
 import { WhatsappLocationButton } from '@/components/ui/WhatsappLocationButton';
 
 export function Footer() {
   return (
-    <footer className="bg-[#00BF63] text-white pt-14 pb-8 border-t border-[#00a857]">
+    <footer className="bg-[#00BF63] text-white pt-12 md:pt-16 pb-10 border-t border-[#00a857]">
       <Container size="wide">
-        {/* Main Footer Content Grid - 3 Columns Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14 pb-12">
+        {/* Main Footer Content Grid - 3 Columns Layout with Zara Mobile Centering & Prominent Sizing */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 pb-10 text-center md:text-left items-center md:items-start">
           {/* Column 1: Brand Logo, Direct Phone & Social Media */}
-          <div className="space-y-5">
+          <div className="space-y-6 flex flex-col items-center md:items-start">
             <Link
               href="/"
               className="inline-block hover:opacity-85 transition-opacity py-1"
@@ -22,37 +23,37 @@ export function Footer() {
                 alt={SITE_CONFIG.brandName}
                 width={375}
                 height={80}
-                className="h-12 md:h-14 w-auto object-contain brightness-0 invert drop-shadow-sm"
+                className="h-14 md:h-16 w-auto object-contain brightness-0 invert drop-shadow-sm mx-auto md:mx-0"
               />
             </Link>
 
-            <div className="space-y-1.5 pt-1">
-              <p className="text-xs uppercase font-bold tracking-wider text-white/80">
-                Bize Ulaşın
+            <div className="space-y-2">
+              <p className="text-xs uppercase font-extrabold tracking-widest text-white/80">
+                BİZE ULAŞIN
               </p>
-              <a
-                href={SITE_CONFIG.phoneTelLink}
-                className="block text-2xl md:text-3xl font-extrabold tracking-tight text-white hover:text-black transition-colors"
+              <TrackedPhoneLink
+                location="footer"
+                className="block text-3xl md:text-4xl font-extrabold tracking-tight text-white hover:text-black transition-colors"
               >
                 {SITE_CONFIG.phone}
-              </a>
+              </TrackedPhoneLink>
             </div>
 
-            <div className="space-y-2.5 pt-1">
-              <p className="text-xs uppercase font-bold tracking-wider text-white/80">
-                Bizi Takip Edin
+            <div className="space-y-3 pt-1">
+              <p className="text-xs uppercase font-extrabold tracking-widest text-white/80">
+                BİZİ TAKİP EDİN
               </p>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center justify-center md:justify-start space-x-4">
                 {/* TikTok Icon */}
                 <a
                   href={SITE_CONFIG.socialLinks.tiktok}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="TikTok"
-                  className="w-9 h-9 flex items-center justify-center bg-white text-[#00BF63] rounded-full hover:bg-black hover:text-white transition-all shadow-sm"
+                  className="w-11 h-11 flex items-center justify-center bg-white text-[#00BF63] rounded-full hover:bg-black hover:text-white transition-all shadow-md active:scale-95"
                 >
                   <svg
-                    className="w-4 h-4 fill-current"
+                    className="w-5 h-5 fill-current"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
                   >
@@ -66,10 +67,10 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  className="w-9 h-9 flex items-center justify-center bg-white text-[#00BF63] rounded-full hover:bg-black hover:text-white transition-all shadow-sm"
+                  className="w-11 h-11 flex items-center justify-center bg-white text-[#00BF63] rounded-full hover:bg-black hover:text-white transition-all shadow-md active:scale-95"
                 >
                   <svg
-                    className="w-4 h-4 fill-current"
+                    className="w-5 h-5 fill-current"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
                   >
@@ -83,10 +84,10 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="YouTube"
-                  className="w-9 h-9 flex items-center justify-center bg-white text-[#00BF63] rounded-full hover:bg-black hover:text-white transition-all shadow-sm"
+                  className="w-11 h-11 flex items-center justify-center bg-white text-[#00BF63] rounded-full hover:bg-black hover:text-white transition-all shadow-md active:scale-95"
                 >
                   <svg
-                    className="w-4 h-4 fill-current"
+                    className="w-5 h-5 fill-current"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
                   >
@@ -99,32 +100,37 @@ export function Footer() {
 
           {/* Column 2: ORTA — KEŞFET */}
           <div className="space-y-4">
-            <h2 className="text-sm md:text-base font-bold uppercase tracking-wider text-white">
+            <h2 className="text-sm font-extrabold uppercase tracking-widest text-white">
               KEŞFET
             </h2>
-            <ul className="space-y-3 text-sm md:text-base font-medium text-white/90">
+            <ul className="space-y-3.5 text-base font-semibold text-white/95">
               <li>
-                <Link href="/hakkimizda" className="hover:text-black transition-colors block">
+                <Link href="/hakkimizda" className="hover:text-black transition-colors block py-0.5">
                   Hakkımızda
                 </Link>
               </li>
               <li>
-                <Link href="/hizmetler" className="hover:text-black transition-colors block">
+                <Link href="/hizmetler" className="hover:text-black transition-colors block py-0.5">
                   Hizmetler
                 </Link>
               </li>
               <li>
-                <Link href="/galeri" className="hover:text-black transition-colors block">
+                <Link href="/galeri" className="hover:text-black transition-colors block py-0.5">
                   Galeri
                 </Link>
               </li>
               <li>
-                <Link href="/musteri-yorumlari" className="hover:text-black transition-colors block">
+                <Link href="/musteri-yorumlari" className="hover:text-black transition-colors block py-0.5">
                   Müşteri Yorumları
                 </Link>
               </li>
               <li>
-                <Link href="/iletisim" className="hover:text-black transition-colors block">
+                <Link href="/sosyal-medya" className="hover:text-black transition-colors block py-0.5">
+                  Sosyal Medya
+                </Link>
+              </li>
+              <li>
+                <Link href="/iletisim" className="hover:text-black transition-colors block py-0.5">
                   İletişim
                 </Link>
               </li>
@@ -133,30 +139,30 @@ export function Footer() {
 
           {/* Column 3: SAĞ — BİZİ BULUN */}
           <div className="space-y-4">
-            <h2 className="text-sm md:text-base font-bold uppercase tracking-wider text-white">
+            <h2 className="text-sm font-extrabold uppercase tracking-widest text-white">
               BİZİ BULUN
             </h2>
-            <div className="space-y-4 text-sm md:text-base font-medium text-white/90">
+            <div className="space-y-4 text-base font-medium text-white/95">
               {/* Formatted Address */}
-              <div className="leading-relaxed space-y-1">
-                <p className="font-bold text-white">{SITE_CONFIG.location.streetAddress}</p>
+              <div className="leading-relaxed space-y-1 text-sm md:text-base">
+                <p className="font-extrabold text-white text-base">{SITE_CONFIG.location.streetAddress}</p>
                 <p>{SITE_CONFIG.location.neighborhood}, {SITE_CONFIG.location.district}</p>
-                <p className="text-white/80">{SITE_CONFIG.location.city}, {SITE_CONFIG.location.country}</p>
+                <p className="text-white/90">{SITE_CONFIG.location.city}, {SITE_CONFIG.location.country}</p>
               </div>
 
               {/* Action Links */}
-              <div className="space-y-2.5 pt-2">
+              <div className="space-y-3 pt-2">
                 <a
                   href={SITE_CONFIG.location.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-black transition-colors block text-sm md:text-base font-semibold"
+                  className="hover:text-black transition-colors block text-base font-bold text-white"
                 >
                   Google Maps&apos;te Yol Tarifi Al &rarr;
                 </a>
                 <WhatsappLocationButton
                   variant="raw"
-                  className="hover:text-black transition-colors block text-sm md:text-base font-semibold text-left text-white/90"
+                  className="hover:text-black transition-colors block text-base font-bold text-center md:text-left text-white"
                 >
                   Hızlı Konum Gönder &rarr;
                 </WhatsappLocationButton>
@@ -166,28 +172,28 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar Section */}
-        <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 text-xs font-medium text-white/90">
+        <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center md:items-end gap-4 text-xs font-semibold text-white/90 text-center md:text-left">
           {/* Left Side */}
           <div>
-            <p className="font-semibold">
+            <p>
               &copy; {new Date().getFullYear()} NEON OTO KURTARMA. Tüm hakları saklıdır.
             </p>
           </div>
 
           {/* Right Side */}
-          <div className="text-left md:text-right space-y-1">
-            <p className="font-semibold text-white">
+          <div className="text-center md:text-right space-y-1">
+            <p className="text-white">
               Tasarım ve geliştirme:{' '}
               <a
                 href="https://whyasaf.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline hover:opacity-90 transition-opacity text-white font-bold"
+                className="hover:opacity-90 transition-opacity text-white font-extrabold"
               >
                 whyasaf | Ömer Asaf Ak
               </a>
             </p>
-            <p className="font-semibold text-white/85">
+            <p className="text-white/90">
               MARKI LABS — Dijital Tasarım ve Geliştirme
             </p>
           </div>

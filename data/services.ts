@@ -49,14 +49,4 @@ export const SERVICES_DATA: ServiceItem[] = [
     description:
       'Patlayan veya hasar gören lastiklerde bulunduğunuz noktaya ulaşarak gerekli lastik değişimi desteğini sağlıyoruz. Amaç, yolda geçirdiğiniz süreyi mümkün olduğunca azaltarak güvenli şekilde hareket etmenizi sağlamak.',
   },
-  {
-    id: 'yakit-destegi',
-    slug: 'yakit-destegi',
-    number: '05',
-    title: 'YAKIT DESTEĞİ',
-    meta: ['7/24 DESTEK', 'SAHA MÜDAHALESİ'],
-    shortDescription: 'Yakıtı tükenen araçlar için konuma özel hızlı yakıt ikmal desteği.',
-    description:
-      'Yakıtı tükenen araçlar için bulunduğunuz konuma ulaşarak yakıt desteği sağlıyoruz. Gerekli desteğin ardından yolculuğumuza devam edebilmeniz için hızlı ve pratik bir çözüm sunuyoruz.',
-  },
 ];

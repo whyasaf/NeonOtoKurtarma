@@ -4,7 +4,6 @@ import { constructMetadata } from '@/lib/seo';
 import { SITE_CONFIG } from '@/data/site';
 import { Container } from '@/components/ui/Container';
 import { Heading, Text } from '@/components/ui/Typography';
-import { ImageWrapper } from '@/components/ui/ImageWrapper';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -19,83 +18,6 @@ export const metadata = constructMetadata({
     'NEON Oto Kurtarma Instagram, TikTok ve YouTube hesaplarımız. 38.000+ takipçili dijital topluluğumuz ve canlı saha operasyon videolarımız.',
   path: '/sosyal-medya',
 });
-
-// Instagram Reels Showcase Mock Data
-const INSTAGRAM_REELS = [
-  {
-    id: 1,
-    image: '/images/neongaleri1.jpeg',
-    views: '145K İzlenme',
-    tag: 'REELS 🔥',
-    title: 'E-5 Bakırköy Gece Operasyonu',
-  },
-  {
-    id: 2,
-    image: '/images/neongaleri5.jpeg',
-    views: '98K İzlenme',
-    tag: 'CANLI SAHA ⚡',
-    title: 'VIP Araç Hasarsız Yükleme',
-  },
-  {
-    id: 3,
-    image: '/images/neongaleri12.jpeg',
-    views: '210K İzlenme',
-    tag: 'POPÜLER 🚀',
-    title: 'Zorlu Çekici Senaryosu',
-  },
-  {
-    id: 4,
-    image: '/images/neongaleri18.jpeg',
-    views: '85K İzlenme',
-    tag: '7/24 🚘',
-    title: 'Yağmurlu Havada Hızlı Müdahale',
-  },
-];
-
-// TikTok Videos Showcase Mock Data
-const TIKTOK_VIDEOS = [
-  {
-    id: 1,
-    image: '/images/neongaleri3.jpeg',
-    views: '320K',
-    likes: '24.5K',
-    title: 'Son Model Lüks Araç Çekiciye Nasıl Yüklenir?',
-  },
-  {
-    id: 2,
-    image: '/images/neongaleri8.jpeg',
-    views: '450K',
-    likes: '38.1K',
-    title: '20 Dakikada Olay Yeri Müdahalesi',
-  },
-  {
-    id: 3,
-    image: '/images/neongaleri15.jpeg',
-    views: '190K',
-    likes: '15.8K',
-    title: 'Gece Vardiyası — İstanbul Yolları',
-  },
-];
-
-// YouTube Vlogs Mock Data
-const YOUTUBE_VLOGS = [
-  {
-    id: 1,
-    image: '/images/neongaleri2.jpeg',
-    duration: '12:45',
-    views: '42K İzlenme',
-    title: 'İstanbul Oto Kurtarma Günlükleri Vlog #14 — Bakırköy E-5',
-    desc: 'Bölgedeki en zorlu araç tahliye operasyonunu adım adım kaydettik.',
-  },
-  {
-    id: 2,
-    image: '/images/neongaleri19.jpeg',
-    duration: '18:10',
-    views: '68K İzlenme',
-    title: 'VIP Klasik Araç Taşıma & Özel Ekipman Teknikleri',
-    desc: 'Sıfır hata prensibiyle uyguladığımız taşıma standartlarımız.',
-  },
-];
 
 export default function SosyalMedyaPage() {
   return (
@@ -177,7 +99,7 @@ export default function SosyalMedyaPage() {
               {/* Bottom Action & Neon Logo */}
               <div className="flex items-center justify-between pt-5 border-t border-gray-100">
                 <span className="inline-flex items-center text-xs font-bold uppercase tracking-[0.2em] text-black group-hover:text-[#00BF63] group-hover:translate-x-1.5 transition-all gap-2">
-                  <span>Instagram'da Takip Et</span>
+                  <span>Instagram&apos;da Takip Et</span>
                   <span>&rarr;</span>
                 </span>
 
@@ -238,7 +160,7 @@ export default function SosyalMedyaPage() {
               {/* Bottom Action & Neon Logo */}
               <div className="flex items-center justify-between pt-5 border-t border-gray-100">
                 <span className="inline-flex items-center text-xs font-bold uppercase tracking-[0.2em] text-black group-hover:text-[#00BF63] group-hover:translate-x-1.5 transition-all gap-2">
-                  <span>TikTok'ta Takip Et</span>
+                  <span>TikTok&apos;ta Takip Et</span>
                   <span>&rarr;</span>
                 </span>
 
@@ -299,7 +221,7 @@ export default function SosyalMedyaPage() {
               {/* Bottom Action & Neon Logo */}
               <div className="flex items-center justify-between pt-5 border-t border-gray-100">
                 <span className="inline-flex items-center text-xs font-bold uppercase tracking-[0.2em] text-black group-hover:text-[#00BF63] group-hover:translate-x-1.5 transition-all gap-2">
-                  <span>YouTube'da Abone Ol</span>
+                  <span>YouTube&apos;da Abone Ol</span>
                   <span>&rarr;</span>
                 </span>
 

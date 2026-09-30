@@ -1,14 +1,23 @@
+import { Playfair_Display } from 'next/font/google';
 import { SITE_CONFIG } from '@/data/site';
 import { SERVICES_DATA } from '@/data/services';
 import { constructMetadata } from '@/lib/seo';
 import { Container } from '@/components/ui/Container';
+import { Button } from '@/components/ui/Button';
 import { FaqAccordion } from '@/components/services/FaqAccordion';
 import { WhatsappLocationButton } from '@/components/ui/WhatsappLocationButton';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  style: ['italic'],
+  weight: ['400', '600'],
+  display: 'swap',
+});
 
 export const metadata = constructMetadata({
   title: 'Hizmetlerimiz | NEON Oto Kurtarma',
   description:
-    'NEON Oto Kurtarma 7/24 oto kurtarma ve yol yardım hizmetleri: Arıza/kaza çekici, VIP transfer, akü takviye, lastik değişimi ve yakıt desteği.',
+    'NEON Oto Kurtarma 7/24 oto kurtarma ve yol yardım hizmetleri: Arıza/kaza çekici, VIP transfer, akü takviye ve lastik değişimi.',
   path: '/hizmetler',
 });
 
@@ -37,32 +46,25 @@ export default function HizmetlerPage() {
   return (
     <main className="bg-white text-black min-h-screen">
       {/* Hero Section */}
-      <section className="pt-16 md:pt-24 lg:pt-32 pb-12 md:pb-16">
+      <section className="pt-16 md:pt-24 lg:pt-32 pb-14 md:pb-20 border-b border-[#E5E5E5]">
         <Container size="wide">
-          <div className="max-w-4xl">
-            <p className="text-xs font-semibold tracking-widest text-[#666666] uppercase mb-4">
-              NEON OTO KURTARMA / İSTANBUL
-            </p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-black leading-[1.1] mb-6 whitespace-pre-line">
-              {'Yolda kaldığınızda,\nhareket devam eder.'}
+          <div className="max-w-4xl space-y-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-black leading-[1.1]">
+              Yolda kaldığınızda, <span className={`${playfair.className} italic font-normal tracking-normal text-[#00BF63]`}>hareket devam eder.</span>
             </h1>
-            <p className="text-lg md:text-xl text-[#555555] leading-relaxed mb-8 max-w-2xl font-normal">
-              Oto kurtarma ve yol yardım hizmetlerinde 7/24 saha desteği.
+
+            <p className="text-lg md:text-xl text-[#555555] leading-relaxed max-w-2xl font-normal pt-2">
+              Oto kurtarma, çekici, akü takviye ve acil yol yardım hizmetlerinde 7/24 kesintisiz saha desteği.
             </p>
 
-            {/* CTA Hierarchy */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <a
-                href={SITE_CONFIG.phoneTelLink}
-                className="bg-[#00BF63] hover:bg-[#00a857] text-white font-bold px-8 py-4 text-base tracking-wide transition-colors inline-block text-center"
-              >
-                {SITE_CONFIG.phone}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-6">
+              <a href={SITE_CONFIG.phoneTelLink} className="w-full sm:w-auto">
+                <Button variant="accent" size="lg" className="w-full sm:w-auto min-h-[52px] bg-[#00BF63] hover:bg-[#00a857] text-white border-none">
+                  0545 154 19 10
+                </Button>
               </a>
-              <WhatsappLocationButton
-                variant="link"
-                className="text-sm font-semibold text-black hover:text-[#00BF63] underline underline-offset-8 transition-colors"
-              >
-                WhatsApp ile konum paylaş
+              <WhatsappLocationButton variant="link" className="text-sm font-semibold py-2">
+                Hızlı Konum Gönder (7/24) &rarr;
               </WhatsappLocationButton>
             </div>
           </div>
@@ -107,7 +109,7 @@ export default function HizmetlerPage() {
                   <div>
                     <a
                       href={SITE_CONFIG.phoneTelLink}
-                      className="inline-flex items-center text-sm font-bold text-black hover:text-[#00BF63] transition-colors gap-2 group"
+                      className="inline-flex items-center text-sm font-bold text-white bg-[#00BF63] hover:bg-[#00a857] px-5 py-2.5 transition-colors gap-2 group"
                     >
                       <span>Hizmet Talebi Oluştur ({SITE_CONFIG.phone})</span>
                       <span className="group-hover:translate-x-1 transition-transform">
@@ -185,9 +187,9 @@ export default function HizmetlerPage() {
               </a>
               <WhatsappLocationButton
                 variant="link"
-                className="text-sm md:text-base font-semibold text-black hover:text-[#00BF63] underline underline-offset-8 transition-colors"
+                className="text-sm md:text-base font-semibold text-black hover:text-[#00BF63] transition-colors"
               >
-                WhatsApp ile konum paylaş
+                Hızlı Konum Gönder (7/24) &rarr;
               </WhatsappLocationButton>
             </div>
           </div>

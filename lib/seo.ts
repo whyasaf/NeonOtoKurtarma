@@ -18,15 +18,31 @@ export function constructMetadata({
 }: ConstructMetadataInput = {}): Metadata {
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
   const canonicalUrl = `${SITE_CONFIG.domain}${cleanPath === '/' ? '' : cleanPath}`;
+  const defaultOgImageUrl = `${SITE_CONFIG.domain}/images/neonsite-og.png`;
+
+  const finalOgImageUrl = ogImage
+    ? ogImage.startsWith('http://') || ogImage.startsWith('https://')
+      ? ogImage
+      : `${SITE_CONFIG.domain}${ogImage.startsWith('/') ? '' : '/'}${ogImage}`
+    : defaultOgImageUrl;
 
   return {
     title,
     description,
     metadataBase: new URL(SITE_CONFIG.domain),
     icons: {
-      icon: '/images/neonlogo.png',
-      shortcut: '/images/neonlogo.png',
-      apple: '/images/neonlogo.png',
+      icon: [
+        { url: '/images/neonlogo.png', media: '(prefers-color-scheme: light)' },
+        { url: '/images/neonlogo-white.png', media: '(prefers-color-scheme: dark)' },
+      ],
+      shortcut: [
+        { url: '/images/neonlogo.png', media: '(prefers-color-scheme: light)' },
+        { url: '/images/neonlogo-white.png', media: '(prefers-color-scheme: dark)' },
+      ],
+      apple: [
+        { url: '/images/neonlogo.png', media: '(prefers-color-scheme: light)' },
+        { url: '/images/neonlogo-white.png', media: '(prefers-color-scheme: dark)' },
+      ],
     },
     alternates: {
       canonical: canonicalUrl,
@@ -49,13 +65,21 @@ export function constructMetadata({
       siteName: SITE_CONFIG.brandName,
       locale: 'tr_TR',
       type: 'website',
-      ...(ogImage ? { images: [{ url: ogImage }] } : {}),
+      images: [
+        {
+          url: finalOgImageUrl,
+          width: 1200,
+          height: 630,
+          alt: title,
+          type: 'image/png',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      ...(ogImage ? { images: [ogImage] } : {}),
+      images: [finalOgImageUrl],
     },
   };
 }
@@ -67,6 +91,9 @@ export function generateAutomotiveBusinessSchema() {
     name: SITE_CONFIG.brandName,
     url: SITE_CONFIG.domain,
     telephone: SITE_CONFIG.phoneRaw,
+    logo: `${SITE_CONFIG.domain}/images/neonlogo.png`,
+    image: `${SITE_CONFIG.domain}/images/neonsite-og.png`,
+    description: SITE_CONFIG.defaultMeta.description,
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',

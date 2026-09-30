@@ -68,7 +68,7 @@ export function WhatsappLocationButton({
       ? 'bg-[#00BF63] hover:bg-[#00a857] text-white font-bold px-7 py-3.5 text-base tracking-wide transition-colors inline-block text-center rounded-sm cursor-pointer'
       : variant === 'raw'
       ? 'cursor-pointer'
-      : 'text-sm md:text-base font-semibold text-black hover:text-[#00BF63] underline underline-offset-8 transition-colors cursor-pointer';
+      : 'text-sm md:text-base font-semibold text-black hover:text-[#00BF63] transition-colors cursor-pointer';
 
   const defaultContent = label || (loading ? 'Konum Alınıyor...' : 'Hızlı Konum Gönder \u2192');
 

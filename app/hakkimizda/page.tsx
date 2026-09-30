@@ -7,6 +7,7 @@ import { Heading, Text } from '@/components/ui/Typography';
 import { Button } from '@/components/ui/Button';
 import { ImageWrapper } from '@/components/ui/ImageWrapper';
 import { WhatsappLocationButton } from '@/components/ui/WhatsappLocationButton';
+import { FeaturedReviewsSection } from '@/components/sections/FeaturedReviewsSection';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -63,7 +64,6 @@ export default function HakkimizdaPage() {
       <section className="pt-16 md:pt-24 lg:pt-32 pb-14 md:pb-20 border-b border-[#E5E5E5]">
         <Container size="wide">
           <div className="max-w-4xl space-y-6">
-
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-black leading-[1.1]">
               Aracınızı işini severek yapan <span className={`${playfair.className} italic font-normal tracking-normal text-[#00BF63]`}>kişilere teslim edin.</span>
             </h1>
@@ -79,7 +79,7 @@ export default function HakkimizdaPage() {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-6">
               <a href={SITE_CONFIG.phoneTelLink} className="w-full sm:w-auto">
-                <Button variant="primary" size="lg" className="w-full sm:w-auto min-h-[52px]">
+                <Button variant="accent" size="lg" className="w-full sm:w-auto min-h-[52px] bg-[#00BF63] hover:bg-[#00a857] text-white border-none">
                   0545 154 19 10
                 </Button>
               </a>
@@ -155,6 +155,9 @@ export default function HakkimizdaPage() {
         </Container>
       </section>
 
+      {/* 4.5. Interactive Featured Customer Reviews Section */}
+      <FeaturedReviewsSection />
+
       {/* 5. Second Editorial Photography Section */}
       <section className="py-14 md:py-20 border-b border-[#E5E5E5]">
         <Container size="wide">
@@ -169,7 +172,7 @@ export default function HakkimizdaPage() {
               <div className="pt-2">
                 <a
                   href={SITE_CONFIG.phoneTelLink}
-                  className="inline-flex items-center text-base font-bold text-black hover:text-[#00BF63] transition-colors gap-2 group"
+                  className="inline-flex items-center text-base font-bold text-white bg-[#00BF63] hover:bg-[#00a857] px-6 py-3 transition-colors gap-2 group"
                 >
                   <span>Doğrudan İletişim Hattı ({SITE_CONFIG.phone})</span>
                   <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>

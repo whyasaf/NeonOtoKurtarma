@@ -10,7 +10,7 @@ export interface TextLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 const variantClasses = {
-  default: 'text-black hover:text-gray-600 underline underline-offset-4 decoration-1',
+  default: 'text-black hover:text-gray-600 transition-colors duration-150',
   accent: 'text-black hover:text-[#00BF63] transition-colors duration-150',
   subtle: 'text-gray-600 hover:text-black transition-colors duration-150',
 };

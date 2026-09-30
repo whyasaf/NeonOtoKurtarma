@@ -18,9 +18,11 @@ export const metadata = constructMetadata({
 });
 
 const GALLERY_IMAGES = [
-  '/images/neongaleri1.jpeg',
   '/images/neongaleri2.jpeg',
   '/images/neongaleri3.jpeg',
+  '/images/neongaleri12.jpeg',
+  '/images/neongaleri20.jpeg',
+  '/images/neongaleri1.jpeg',
   '/images/neongaleri4.jpeg',
   '/images/neongaleri5.jpeg',
   '/images/neongaleri6.jpeg',
@@ -29,7 +31,6 @@ const GALLERY_IMAGES = [
   '/images/neongaleri9.jpeg',
   '/images/neongaleri10.jpeg',
   '/images/neongaleri11.jpeg',
-  '/images/neongaleri12.jpeg',
   '/images/neongaleri13.jpeg',
   '/images/neongaleri14.jpeg',
   '/images/neongaleri15.jpeg',
@@ -37,7 +38,6 @@ const GALLERY_IMAGES = [
   '/images/neongaleri17.jpeg',
   '/images/neongaleri18.jpeg',
   '/images/neongaleri19.jpeg',
-  '/images/neongaleri20.jpeg',
 ];
 
 export default function GaleriPage() {
