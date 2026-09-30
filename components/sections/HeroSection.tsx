@@ -47,7 +47,7 @@ export function HeroSection() {
             </TrackedPhoneLink>
           </div>
 
-          {/* Desktop View (hidden sm:flex): Green Phone Button + WhatsApp Link */}
+          {/* Desktop View (hidden sm:flex): Green Phone Button + Kutusuz WhatsApp Link */}
           <div className="hidden sm:flex sm:flex-row items-center gap-6 pt-4 w-auto">
             <TrackedPhoneLink location="hero" className="w-auto">
               <Button
@@ -59,8 +59,8 @@ export function HeroSection() {
               </Button>
             </TrackedPhoneLink>
             <WhatsappLocationButton
-              variant="button"
-              className="min-h-0 px-0 text-sm font-semibold text-black hover:text-[#00BF63] transition-colors rounded-none flex items-center justify-center gap-2 shadow-none bg-transparent hover:bg-transparent"
+              variant="link"
+              className="text-sm font-semibold text-black hover:text-[#00BF63] transition-colors py-2"
             >
               Hızlı Konum Gönder (7/24) &rarr;
             </WhatsappLocationButton>

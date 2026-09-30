@@ -7,7 +7,7 @@ import { WhatsappLocationButton } from '@/components/ui/WhatsappLocationButton';
 
 export function QuickContactSection() {
   return (
-    <Section padding="sm">
+    <Section padding="sm" className="hidden md:block">
       <Container size="default">
         <Divider margin="none" className="mb-8" />
         

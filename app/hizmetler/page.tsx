@@ -75,7 +75,7 @@ export default function HizmetlerPage() {
               </TrackedPhoneLink>
             </div>
 
-            {/* Desktop View (hidden sm:flex): Green Phone Button + WhatsApp Link */}
+            {/* Desktop View (hidden sm:flex): Green Phone Button + Kutusuz WhatsApp Link */}
             <div className="hidden sm:flex sm:flex-row items-center gap-6 pt-6">
               <TrackedPhoneLink location="hizmetler_hero" className="w-auto">
                 <Button variant="accent" size="lg" className="min-h-[52px] bg-[#00BF63] hover:bg-[#00a857] text-white border-none">
