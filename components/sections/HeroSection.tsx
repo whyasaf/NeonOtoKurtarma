@@ -22,11 +22,11 @@ export function HeroSection() {
       <Container size="wide">
         <div className="max-w-4xl space-y-6 md:space-y-8 mb-10 md:mb-16 text-left flex flex-col items-start">
           <Heading level="display" className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
-            Yolda kaldığınızda hareket <span className={`${playfair.className} italic font-normal tracking-normal text-[#00BF63]`}>devam eder.</span>
+            İstanbul 7/24 oto çekici ve <span className={`${playfair.className} italic font-normal tracking-normal text-[#00BF63]`}>yol yardım.</span>
           </Heading>
 
           <Text variant="lead" className="max-w-2xl text-gray-700 text-base md:text-xl">
-            {SITE_CONFIG.brandName}, İstanbul ve Bakırköy genelinde 7/24 oto çekici, araç kurtarma ve acil yol yardım operasyonlarını kesintisiz sürdürür.
+            Yolda kaldığınızda hareket devam eder. {SITE_CONFIG.brandName}, Bakırköy merkezli olarak İstanbul genelinde 7/24 oto çekici, araç kurtarma, akü takviyesi ve lastik değişimi hizmeti verir. Arayın ya da konumunuzu gönderin, ekibimiz yola çıksın.
           </Text>
 
           {/* Restrained CTA Hierarchy: Mobile vs Desktop Layout */}

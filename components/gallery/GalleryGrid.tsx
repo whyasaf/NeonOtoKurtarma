@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
+import { ModalPortal } from '@/components/ui/ModalPortal';
 
 interface GalleryGridProps {
   images: string[];
@@ -9,6 +10,9 @@ interface GalleryGridProps {
 
 export function GalleryGrid({ images }: GalleryGridProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
+
+  const closeLightbox = useCallback(() => setSelectedIndex(null), []);
 
   const handleNext = useCallback(() => {
     if (selectedIndex !== null) {
@@ -25,7 +29,6 @@ export function GalleryGrid({ images }: GalleryGridProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedIndex === null) return;
-      if (e.key === 'Escape') setSelectedIndex(null);
       if (e.key === 'ArrowRight') handleNext();
       if (e.key === 'ArrowLeft') handlePrev();
     };
@@ -122,15 +125,26 @@ export function GalleryGrid({ images }: GalleryGridProps) {
 
       {/* High-Fashion Lightbox Modal */}
       {selectedIndex !== null && (
+        <ModalPortal onClose={closeLightbox}>
         <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8 select-none"
-          onClick={() => setSelectedIndex(null)}
+          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8 select-none"
+          onClick={closeLightbox}
+          onTouchStart={(e) => {
+            touchStartX.current = e.touches[0].clientX;
+          }}
+          onTouchEnd={(e) => {
+            if (touchStartX.current === null) return;
+            const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+            touchStartX.current = null;
+            if (deltaX > 60) handlePrev();
+            else if (deltaX < -60) handleNext();
+          }}
         >
           {/* Close Button */}
           <button
             type="button"
-            onClick={() => setSelectedIndex(null)}
-            className="absolute top-6 right-6 text-white/80 hover:text-white text-3xl font-light z-50 p-2 cursor-pointer transition-colors"
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 md:top-6 md:right-6 min-h-[48px] min-w-[48px] flex items-center justify-center text-white/80 hover:text-white text-3xl font-light z-50 cursor-pointer transition-colors"
             aria-label="Kapat"
           >
             &#x2715;
@@ -143,7 +157,7 @@ export function GalleryGrid({ images }: GalleryGridProps) {
               e.stopPropagation();
               handlePrev();
             }}
-            className="absolute left-4 md:left-8 text-white/80 hover:text-white text-4xl p-3 z-50 cursor-pointer transition-colors"
+            className="absolute left-1 md:left-8 min-h-[48px] min-w-[48px] text-white/80 hover:text-white text-4xl p-3 z-50 cursor-pointer transition-colors"
             aria-label="Önceki Görsel"
           >
             &#8249;
@@ -171,7 +185,7 @@ export function GalleryGrid({ images }: GalleryGridProps) {
               e.stopPropagation();
               handleNext();
             }}
-            className="absolute right-4 md:right-8 text-white/80 hover:text-white text-4xl p-3 z-50 cursor-pointer transition-colors"
+            className="absolute right-1 md:right-8 min-h-[48px] min-w-[48px] text-white/80 hover:text-white text-4xl p-3 z-50 cursor-pointer transition-colors"
             aria-label="Sonraki Görsel"
           >
             &#8250;
@@ -182,6 +196,7 @@ export function GalleryGrid({ images }: GalleryGridProps) {
             {selectedIndex + 1} / {images.length}
           </div>
         </div>
+        </ModalPortal>
       )}
     </>
   );

@@ -171,17 +171,36 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar Section */}
-        <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center md:items-end gap-4 text-xs font-semibold text-white/90 text-center md:text-left">
-          {/* Left Side */}
-          <div>
-            <p>
-              &copy; {new Date().getFullYear()} NEON OTO KURTARMA. Tüm hakları saklıdır.
-            </p>
-          </div>
+        {/* Bottom Bar Section: stacked on mobile, 3 columns on desktop */}
+        <div className="pt-8 border-t border-white/20 flex flex-col md:grid md:grid-cols-3 items-center gap-5 md:gap-6 text-xs font-semibold text-white/90 text-center">
+          {/* Left: Copyright */}
+          <p className="md:text-left md:justify-self-start order-2 md:order-1">
+            &copy; {new Date().getFullYear()} NEON OTO KURTARMA. Tüm hakları saklıdır.
+          </p>
 
-          {/* Right Side */}
-          <div className="text-center md:text-right space-y-1">
+          {/* Center: Legal Links */}
+          <nav aria-label="Yasal Bilgiler" className="order-1 md:order-2 md:justify-self-center">
+            <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+              <li>
+                <Link href="/kvkk-aydinlatma-metni" className="hover:text-black transition-colors block py-1">
+                  KVKK Aydınlatma Metni
+                </Link>
+              </li>
+              <li>
+                <Link href="/cerez-politikasi" className="hover:text-black transition-colors block py-1">
+                  Çerez Politikası
+                </Link>
+              </li>
+              <li>
+                <Link href="/gizlilik-politikasi" className="hover:text-black transition-colors block py-1">
+                  Gizlilik Politikası
+                </Link>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Right: Developer Credit */}
+          <div className="space-y-1 order-3 md:text-right md:justify-self-end">
             <p className="text-white">
               Tasarım ve geliştirme:{' '}
               <a

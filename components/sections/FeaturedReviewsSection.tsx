@@ -1,7 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import Link from 'next/link';
+import { ModalPortal } from '@/components/ui/ModalPortal';
+import { REVIEWS, type Review } from '@/data/reviews';
 import { Playfair_Display } from 'next/font/google';
 
 const playfair = Playfair_Display({
@@ -11,52 +13,11 @@ const playfair = Playfair_Display({
   display: 'swap',
 });
 
-interface Review {
-  id: number;
-  name: string;
-  location: string;
-  service: string;
-  comment: string;
-  fullComment: string;
-}
-
-const FEATURED_REVIEWS: Review[] = [
-  {
-    id: 1,
-    name: 'Elanur A***',
-    location: 'Bakırköy, İstanbul',
-    service: 'Hızlı Çekici Kurtarma',
-    comment: 'Hızlıydı. Yaklaşık 10 dakika gibi bir sürede yanıma ulaşıp hemen aracımı kurtardılar...',
-    fullComment: 'Hızlıydı. Yaklaşık 10 dakika gibi bir sürede yanıma ulaşıp hemen aracımı kurtardılar. Memnun kaldım teşekkürler.',
-  },
-  {
-    id: 2,
-    name: 'Uğur B***',
-    location: 'Ataköy, Bakırköy',
-    service: 'Akü Takviye Hizmeti',
-    comment: 'Akü takviyesi için teşekkürler. Aracımın dörtlülerini açık unuttuğum için aküm bitmiş...',
-    fullComment: 'Akü takviyesi için teşekkürler. Aracımın dörtlülerini açık unuttuğum için aküm bitmiş. Kısa bir süre içinde gelip Powerbank tarzı bir ekipmanla aracımı çalıştırdılar. Fiyat gayet makuldü.',
-  },
-  {
-    id: 3,
-    name: 'Ömer Asaf A***',
-    location: 'Florya, İstanbul',
-    service: 'Özel Çekici Kurtarma',
-    comment: 'Park halinde arızalanan aracım. Aracım çalışmadı, bir kaç tane çekici geldi fakat...',
-    fullComment: 'Park halinde arızalanan aracım. Aracım çalışmadı, bir kaç tane çekici geldi fakat park yerinden çıkaramadıkları için geri gittiler. Neon oto kurtarma gayet pratik şekilde aracı yükledi. Çok teşekkürler.',
-  },
-  {
-    id: 4,
-    name: 'Furkan Z***',
-    location: 'Yeşilköy, Bakırköy',
-    service: 'Basık Araç Çekici',
-    comment: 'Basık araba sorunu. Aracım yere yakın olduğu için aradığım çoğu çekici alamayacağını söyledi...',
-    fullComment: 'Basık araba sorunu. Aracım yere yakın olduğu için aradığım çoğu çekici alamayacağını söyledi. Neon oto kurtarma aracıma zarar vermeden sorunsuz şekilde aldı. Emeğiniz için teşekkürler.',
-  },
-];
+const FEATURED_REVIEWS: Review[] = REVIEWS.slice(0, 4);
 
 export function FeaturedReviewsSection() {
   const [selectedReview, setSelectedReview] = useState<Review | null>(null);
+  const closeReview = useCallback(() => setSelectedReview(null), []);
 
   return (
     <section className="py-16 md:py-24 bg-white border-b border-[#E5E5E5]">
@@ -125,8 +86,9 @@ export function FeaturedReviewsSection() {
 
       {/* Modern Modal Popup for Detailed Review Reading */}
       {selectedReview && (
+        <ModalPortal onClose={closeReview}>
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
           onClick={() => setSelectedReview(null)}
         >
           <div
@@ -178,6 +140,7 @@ export function FeaturedReviewsSection() {
             </div>
           </div>
         </div>
+        </ModalPortal>
       )}
     </section>
   );

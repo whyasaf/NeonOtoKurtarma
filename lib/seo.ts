@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { SITE_CONFIG } from '@/data/site';
+import { FAQ_ITEMS } from '@/data/faq';
 
 interface ConstructMetadataInput {
   title?: string;
@@ -58,6 +59,11 @@ export function constructMetadata({
         'max-snippet': -1,
       },
     },
+    verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      ? {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        }
+      : undefined,
     openGraph: {
       title,
       description,
@@ -120,5 +126,20 @@ export function generateAutomotiveBusinessSchema() {
       opens: '00:00',
       closes: '23:59',
     },
+  };
+}
+
+export function generateFaqSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQ_ITEMS.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
   };
 }

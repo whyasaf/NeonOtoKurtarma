@@ -22,13 +22,16 @@ export function WhatsappLocationButton({
   const [loading, setLoading] = useState(false);
 
   const handleShareLocation = () => {
+    if (loading) return;
     trackEvent('whatsapp_click', { action: 'gps_location_request' });
 
-    const openDirectWhatsapp = () => {
-      window.open(SITE_CONFIG.whatsappLink, '_blank', 'noopener,noreferrer');
+    // window.open called from an async callback is blocked by popup blockers
+    // (mobile Safari/Chrome), so we navigate the current tab instead.
+    const go = (url: string) => {
+      window.location.href = url;
     };
+    const openDirectWhatsapp = () => go(SITE_CONFIG.whatsappLink);
 
-    // Check if Geolocation API is supported
     if (typeof window === 'undefined' || !('geolocation' in navigator)) {
       openDirectWhatsapp();
       return;
@@ -36,30 +39,29 @@ export function WhatsappLocationButton({
 
     setLoading(true);
 
-    const options: PositionOptions = {
-      enableHighAccuracy: true,
-      timeout: 7000,
-      maximumAge: 0,
+    let finished = false;
+    const finish = (url: string) => {
+      if (finished) return;
+      finished = true;
+      window.clearTimeout(watchdog);
+      setLoading(false);
+      go(url);
     };
+
+    // Safety net: some browsers never call back if the permission prompt is dismissed.
+    const watchdog = window.setTimeout(() => finish(SITE_CONFIG.whatsappLink), 20000);
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        setLoading(false);
         const { latitude, longitude } = position.coords;
         const googleMapsUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
         const message = `Merhaba, oto kurtarma/yol yardım desteğine ihtiyacım var. Konumum: ${googleMapsUrl}`;
-        const whatsappUrl = `https://wa.me/${SITE_CONFIG.whatsappRaw}?text=${encodeURIComponent(
-          message
-        )}`;
-
-        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        finish(
+          `https://wa.me/${SITE_CONFIG.whatsappRaw}?text=${encodeURIComponent(message)}`
+        );
       },
-      () => {
-        setLoading(false);
-        // On any GPS error/denial/timeout, open direct WhatsApp so user is never blocked
-        openDirectWhatsapp();
-      },
-      options
+      () => finish(SITE_CONFIG.whatsappLink),
+      { enableHighAccuracy: false, timeout: 15000, maximumAge: 60000 }
     );
   };
 

@@ -5,6 +5,7 @@ import { constructMetadata } from '@/lib/seo';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { FaqAccordion } from '@/components/services/FaqAccordion';
+import { generateFaqSchema } from '@/lib/seo';
 import { WhatsappLocationButton } from '@/components/ui/WhatsappLocationButton';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 
@@ -185,6 +186,10 @@ export default function HizmetlerPage() {
             </h2>
           </div>
 
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFaqSchema()) }}
+          />
           <FaqAccordion />
         </Container>
       </section>

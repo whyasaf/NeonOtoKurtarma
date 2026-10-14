@@ -8,7 +8,7 @@ import { FinalCtaSection } from '@/components/sections/FinalCtaSection';
 export const metadata = constructMetadata({
   title: 'NEON Oto Kurtarma | İstanbul 7/24 Oto Çekici & Yol Yardım',
   description:
-    'NEON Oto Kurtarma, İstanbul genelinde 7/24 oto kurtarma ve yol yardım hizmeti sunar. Oto çekici, kaza yardımı ve yol yardım desteği için bize ulaşın.',
+    'NEON Oto Kurtarma, Bakırköy merkezli İstanbul genelinde 7/24 oto çekici, araç kurtarma ve yol yardım hizmeti verir. Hemen arayın veya WhatsApp\'tan konumunuzu gönderin.',
   path: '/',
 });
 

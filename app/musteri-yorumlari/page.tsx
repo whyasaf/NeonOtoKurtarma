@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Playfair_Display } from 'next/font/google';
 import { SITE_CONFIG } from '@/data/site';
 import { Container } from '@/components/ui/Container';
@@ -8,6 +8,8 @@ import { Section } from '@/components/ui/Section';
 import { Text } from '@/components/ui/Typography';
 import { WhatsappLocationButton } from '@/components/ui/WhatsappLocationButton';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
+import { ModalPortal } from '@/components/ui/ModalPortal';
+import { REVIEWS, type Review } from '@/data/reviews';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -16,142 +18,9 @@ const playfair = Playfair_Display({
   display: 'swap',
 });
 
-interface Review {
-  id: number;
-  name: string;
-  location: string;
-  rating: number;
-  date: string;
-  service: string;
-  comment: string;
-  fullComment: string;
-}
-
-const REVIEWS: Review[] = [
-  {
-    id: 1,
-    name: 'Elanur A***',
-    location: 'Bakırköy, İstanbul',
-    rating: 5,
-    date: 'Eylül 2026',
-    service: 'Hızlı Çekici Kurtarma',
-    comment: 'Hızlıydı. Yaklaşık 10 dakika gibi bir sürede yanıma ulaşıp hemen aracımı kurtardılar...',
-    fullComment: 'Hızlıydı. Yaklaşık 10 dakika gibi bir sürede yanıma ulaşıp hemen aracımı kurtardılar. Memnun kaldım teşekkürler.',
-  },
-  {
-    id: 2,
-    name: 'Uğur B***',
-    location: 'Ataköy, Bakırköy',
-    rating: 5,
-    date: 'Eylül 2026',
-    service: 'Akü Takviye Hizmeti',
-    comment: 'Akü takviyesi için teşekkürler. Aracımın dörtlülerini açık unuttuğum için aküm bitmiş...',
-    fullComment: 'Akü takviyesi için teşekkürler. Aracımın dörtlülerini açık unuttuğum için aküm bitmiş. Kısa bir süre içinde gelip Powerbank tarzı bir ekipmanla aracımı çalıştırdılar. Fiyat gayet makuldü.',
-  },
-  {
-    id: 3,
-    name: 'Ömer Asaf A***',
-    location: 'Florya, İstanbul',
-    rating: 5,
-    date: 'Ağustos 2026',
-    service: 'Özel Çekici Kurtarma',
-    comment: 'Park halinde arızalanan aracım. Aracım çalışmadı, bir kaç tane çekici geldi fakat...',
-    fullComment: 'Park halinde arızalanan aracım. Aracım çalışmadı, bir kaç tane çekici geldi fakat park yerinden çıkaramadıkları için geri gittiler. Neon oto kurtarma gayet pratik şekilde aracı yükledi. Çok teşekkürler.',
-  },
-  {
-    id: 4,
-    name: 'Furkan Z***',
-    location: 'Yeşilköy, Bakırköy',
-    rating: 5,
-    date: 'Ağustos 2026',
-    service: 'Basık Araç Çekici',
-    comment: 'Basık araba sorunu. Aracım yere yakın olduğu için aradığım çoğu çekici alamayacağını söyledi...',
-    fullComment: 'Basık araba sorunu. Aracım yere yakın olduğu için aradığım çoğu çekici alamayacağını söyledi. Neon oto kurtarma aracıma zarar vermeden sorunsuz şekilde aldı. Emeğiniz için teşekkürler.',
-  },
-  {
-    id: 5,
-    name: 'Serkan Y***',
-    location: 'Küçükçekmece, İstanbul',
-    rating: 5,
-    date: 'Ağustos 2026',
-    service: 'Gece Kurtarma Hizmeti',
-    comment: 'Gece vakti otobanda arızalandım. Konum gönderdikten kısa süre sonra geldiler...',
-    fullComment: 'Gece vakti otobanda arızalandım. Konum gönderdikten kısa süre sonra geldiler. Çekici şoförü arkadaş çok dikkatli ve deneyimliydi. Yol ortasında kalma stresinden kurtardığınız için minnettarım.',
-  },
-  {
-    id: 6,
-    name: 'Merve & Kaan T***',
-    location: 'Basın Ekspres, Bakırköy',
-    rating: 5,
-    date: 'Temmuz 2026',
-    service: '7/24 Yol Yardım',
-    comment: 'Şehir dışı yolculuğu öncesi aracımız durdu. WhatsApp konum paylaşımı çok pratikti...',
-    fullComment: 'Şehir dışı yolculuğu öncesi Basın Ekspres üzerinde aracımız durdu. WhatsApp konum paylaşımı çok pratikti. Ortalama 15 dakikada yanımıza ulaşıp aracı en yakın servise ulaştırdılar.',
-  },
-  {
-    id: 7,
-    name: 'Gökhan D***',
-    location: 'Zeytinburnu, İstanbul',
-    rating: 5,
-    date: 'Temmuz 2026',
-    service: 'Otomatik Vites Taşıma',
-    comment: 'Otomatik vites aracımın şanzıman arızası vardı. Özel ekipmanla hasarsız yükleme yapıldı...',
-    fullComment: 'Otomatik vites aracımın şanzıman arızası vardı. Teferruatlı bir taşıma gerekiyordu, özel ekipmanla tekerleklere zarar vermeden pratik şekilde yüklediler. Profesyonellik tam puan.',
-  },
-  {
-    id: 8,
-    name: 'Bihter N***',
-    location: 'Bahçelievler, İstanbul',
-    rating: 5,
-    date: 'Temmuz 2026',
-    service: 'Lastik Değişimi & Yardım',
-    comment: 'Çivinin batması sonucu lastiğim indi. Ne yapacağımı bilemezken hızlıca yardım ulaştı...',
-    fullComment: 'Çivinin batması sonucu lastiğim indi. Yedek lastiğimi takmak için NEON Oto Kurtarma’yı aradım. Arkadaş çok kısa sürede gelip işlemi hızlıca halletti. Güler yüzlü ve dürüst esnaflık.',
-  },
-  {
-    id: 9,
-    name: 'Selin & Hakan K***',
-    location: 'Zeytinburnu, İstanbul',
-    rating: 5,
-    date: 'Haziran 2026',
-    service: 'Kaza Sonrası Kurtarma',
-    comment: 'Ufak bir kaza sonrası aracımız hareket edemez hale gelmişti. Stresli anımızda çok destek oldular...',
-    fullComment: 'Ufak bir kaza sonrası aracımız hareket edemez hale gelmişti. Stresli anımızda öyle hızlı ve sakin yaklaştılar ki içimiz çok rahat etti. Sigorta ve servis sürecinde de rehberlik ettiler. Harika bir ekip.',
-  },
-  {
-    id: 10,
-    name: 'Tolga B***',
-    location: 'Bahçelievler, İstanbul',
-    rating: 5,
-    date: 'Haziran 2026',
-    service: 'Şehir İçi Oto Çekici',
-    comment: 'Sosyal medyada videolarını takip ediyordum, başıma bir iş geldiğinde doğrudan onları aradım...',
-    fullComment: 'Sosyal medyada videolarını takip ediyordum, başıma bir iş geldiğinde doğrudan onları aradım. Videolardaki şeffaflık ve profesyonellik sahada birebir aynı. NEON kalite standartlarından ödün vermiyor.',
-  },
-  {
-    id: 11,
-    name: 'Emrah S***',
-    location: 'Avcılar, İstanbul',
-    rating: 5,
-    date: 'Mayıs 2026',
-    service: 'VIP Araç Taşıma',
-    comment: 'Sıfır km aracımı bayi çıkışında servise taşıttım. Tek bir çizik bile yoktu...',
-    fullComment: 'Sıfır km aracımı bayi çıkışında servise taşıttım. Yükleme esnasında gösterilen özen ve hassasiyet taktiri hak ediyor. Tek bir çizik bile oluşmadan teslim ettiler.',
-  },
-  {
-    id: 12,
-    name: 'Cemil H***',
-    location: 'Yenibosna, İstanbul',
-    rating: 5,
-    date: 'Mayıs 2026',
-    service: '7/24 Acil Yol Yardım',
-    comment: 'Gece vakti yakıtım bitti ve yolda kaldım. İletişime geçtikten kısa süre sonra destek sağlandı...',
-    fullComment: 'Gece vakti yakıtım bitti ve yolda kaldım. İletişime geçtikten kısa süre sonra gerekli yol yardım desteği sağlandı. Hem nazik hem de tam bir çözüm ortağı.',
-  },
-];
-
 export default function MusteriYorumlariPage() {
   const [selectedReview, setSelectedReview] = useState<Review | null>(null);
+  const closeReview = useCallback(() => setSelectedReview(null), []);
 
   return (
     <main className="bg-white text-black min-h-screen">
@@ -295,8 +164,9 @@ export default function MusteriYorumlariPage() {
 
       {/* Modern Modal Popup for Detailed Review Reading */}
       {selectedReview && (
+        <ModalPortal onClose={closeReview}>
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
           onClick={() => setSelectedReview(null)}
         >
           <div
@@ -351,6 +221,7 @@ export default function MusteriYorumlariPage() {
             </div>
           </div>
         </div>
+        </ModalPortal>
       )}
     </main>
   );

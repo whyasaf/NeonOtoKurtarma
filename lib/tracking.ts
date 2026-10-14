@@ -13,7 +13,7 @@ export interface TrackingEventParams {
 declare global {
   interface Window {
     gtag?: (
-      command: 'event' | 'config' | 'js',
+      command: 'event' | 'config' | 'js' | 'consent',
       targetId: string | Date,
       config?: Record<string, unknown>
     ) => void;
