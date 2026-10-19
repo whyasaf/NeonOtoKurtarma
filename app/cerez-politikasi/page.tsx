@@ -32,9 +32,8 @@ export default function CerezPage() {
           body: (
             <ul>
               <li>
-                <strong>Zorunlu / işlevsel:</strong> Çerez tercihinizi hatırlamak için tarayıcınızda
-                küçük bir kayıt (<code>neon_cookie_consent</code>) tutulur. Bu kayıt olmadan her
-                ziyarette aynı soruyu tekrar görürsünüz.
+                <strong>Zorunlu / işlevsel:</strong> Çerez tercihiniz, sonraki ziyaretlerinizde
+                aynı soruyu tekrar görmemeniz için tutulur.
               </li>
               <li>
                 <strong>Analitik (Google Analytics):</strong> Hangi sayfaların ziyaret edildiğini ve
