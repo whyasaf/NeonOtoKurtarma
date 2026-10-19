@@ -76,7 +76,7 @@ export function CookieConsent() {
         <button
           type="button"
           onClick={() => choose('accepted')}
-          className="min-h-[44px] px-3 bg-[#00BF63] hover:bg-[#00a857] text-white text-xs font-extrabold uppercase tracking-wider transition-colors cursor-pointer"
+          className="min-h-[44px] px-3 bg-black hover:bg-neutral-800 text-white text-xs font-extrabold uppercase tracking-wider transition-colors cursor-pointer"
         >
           Kabul Et
         </button>

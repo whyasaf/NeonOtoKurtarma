@@ -23,12 +23,13 @@ export function Footer() {
                 alt={SITE_CONFIG.brandName}
                 width={375}
                 height={80}
+                sizes="(max-width: 768px) 240px, 300px"
                 className="h-14 md:h-16 w-auto object-contain brightness-0 invert drop-shadow-sm mx-auto md:mx-0"
               />
             </Link>
 
             <div className="space-y-2">
-              <p className="text-xs uppercase font-extrabold tracking-widest text-white/80">
+              <p className="text-xs uppercase font-extrabold tracking-widest text-black/80">
                 BİZE ULAŞIN
               </p>
               <TrackedPhoneLink
@@ -40,7 +41,7 @@ export function Footer() {
             </div>
 
             <div className="space-y-3 pt-1">
-              <p className="text-xs uppercase font-extrabold tracking-widest text-white/80">
+              <p className="text-xs uppercase font-extrabold tracking-widest text-black/80">
                 BİZİ TAKİP EDİN
               </p>
               <div className="flex items-center justify-center md:justify-start space-x-4">

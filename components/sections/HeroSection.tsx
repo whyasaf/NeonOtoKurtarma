@@ -74,7 +74,8 @@ export function HeroSection() {
             alt="NEON Oto Kurtarma Saha Operasyon Filosu"
             fill
             priority
-            sizes="(max-width: 768px) 100vw, 1200px"
+            quality={70}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
             className="object-cover object-[center_70%]"
           />
         </ImageWrapper>

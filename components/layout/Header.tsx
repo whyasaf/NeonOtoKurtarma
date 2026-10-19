@@ -51,6 +51,7 @@ export function Header() {
                 width={375}
                 height={95}
                 priority
+                sizes="(max-width: 768px) 220px, 280px"
                 className="h-11 md:h-14 w-auto max-w-[220px] md:max-w-[280px] object-contain py-0.5"
               />
             </Link>
@@ -95,6 +96,7 @@ export function Header() {
               width={280}
               height={70}
               priority
+              sizes="220px"
               className="h-11 md:h-14 w-auto max-w-[220px] md:max-w-[280px] object-contain py-0.5"
             />
           </Link>

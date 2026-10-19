@@ -12,7 +12,8 @@ export function FinalCtaSection() {
             alt="NEON Oto Kurtarma 7/24 Yol Yardım"
             width={1280}
             height={360}
-            priority
+            quality={70}
+            sizes="(max-width: 768px) 100vw, 896px"
             className="w-full max-w-4xl h-auto object-contain drop-shadow-sm"
           />
         </div>
