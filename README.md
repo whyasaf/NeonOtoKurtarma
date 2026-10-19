@@ -1,7 +1,7 @@
 # NEON Oto Kurtarma — Web Platform
 
 <p align="center">
-  <img src="public/images/neonlogonavbar.png" alt="NEON Oto Kurtarma Logo" width="360" />
+  <img src="public/images/neon-readme.png" alt="NEON Oto Kurtarma Logo" width="180" />
 </p>
 
 <p align="center">
@@ -14,27 +14,28 @@
 
 ---
 
-## ⚡ Google PageSpeed Insights & Web Vitals Skoru
+## Google PageSpeed Insights & Web Vitals Skoru
 
 Mobil cihazlar üzerinde yapılan Lighthouse / PageSpeed test sonuçları:
 
-| Metrik | Puan | Durum |
-| :--- | :---: | :--- |
-| **Performans** | **98** | 🟢 Mükemmel |
-| **Erişilebilirlik (Accessibility)** | **96** | 🟢 Mükemmel |
+| Metrik                                  |  Puan   | Durum       |
+| :-------------------------------------- | :-----: | :---------- |
+| **Performans**                          | **98**  | 🟢 Mükemmel |
+| **Erişilebilirlik (Accessibility)**     | **96**  | 🟢 Mükemmel |
 | **En İyi Uygulamalar (Best Practices)** | **100** | 🟢 Kusursuz |
-| **SEO (Search Engine Optimization)** | **100** | 🟢 Kusursuz |
+| **SEO (Search Engine Optimization)**    | **100** | 🟢 Kusursuz |
 
 ### Temel Web Metrikleri (Core Web Vitals - Mobil)
+
 - **First Contentful Paint (FCP):** `0.9 sn`
 - **Speed Index:** `1.1 sn`
 - **Largest Contentful Paint (LCP):** `2.4 sn`
-- **Cumulative Layout Shift (CLS):** `0` *(Sıfır düzen kayması)*
+- **Cumulative Layout Shift (CLS):** `0` _(Sıfır düzen kayması)_
 - **Total Blocking Time (TBT):** `40 ms`
 
 ---
 
-## 🛠 Kullanılan Teknolojiler ve Mimari
+## Kullanılan Teknolojiler ve Mimari
 
 Bu proje, maksimum hız, sıfır gereksiz yük ve arama motorlarında yerel otorite kazanmak üzere modern web standartlarıyla inşa edilmiştir:
 
@@ -43,7 +44,7 @@ Bu proje, maksimum hız, sıfır gereksiz yük ve arama motorlarında yerel otor
 - **Stil & Tasarım:** [Tailwind CSS v4](https://tailwindcss.com/)
 - **Görsel & Medya Optimizasyonu:** Next.js Image Optimization Pipeline (`AVIF` ve `WebP` adaptif formatları)
 - **Tipografi:** Google Fonts (`Inter` & `Playfair Display`) ile `font-display: swap` optimizasyonu
-- **Arama Motoru Optimizasyonu (SEO):** 
+- **Arama Motoru Optimizasyonu (SEO):**
   - Dinamik XML Site Haritası (`/sitemap.xml`)
   - Dinamik Robot Yönergeleri (`/robots.txt`)
   - Schema.org / JSON-LD Yapılandırılmış Veri (`AutomotiveBusiness` şeması)
@@ -53,14 +54,14 @@ Bu proje, maksimum hız, sıfır gereksiz yük ve arama motorlarında yerel otor
 
 ---
 
-## 📸 Görsel Vitrin
+## Görsel Vitrin
 
 <p align="center">
   <img src="public/images/neongaleri20.jpeg" alt="NEON Saha Filosu" width="100%" />
 </p>
 
 <p align="center">
-  <img src="public/images/neonyol.png" alt="7/24 Yol Yardım" width="85%" />
+  <img src="public/images/neonsite-og.png" alt="7/24 Yol Yardım" width="100%" />
 </p>
 
 ---
