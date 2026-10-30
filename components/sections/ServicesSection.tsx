@@ -34,7 +34,7 @@ export function ServicesSection() {
                 </div>
                 <div className="md:col-span-2 text-center md:text-right pt-2 md:pt-0">
                   <TextLink
-                    href={`/hizmetler#${service.slug}`}
+                    href={`/hizmetler/${service.slug}`}
                     variant="subtle"
                     className="text-xs font-semibold uppercase tracking-wider hover:text-[#00BF63] transition-colors"
                   >

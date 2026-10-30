@@ -1,7 +1,7 @@
 import { Playfair_Display } from 'next/font/google';
 import { constructMetadata } from '@/lib/seo';
 import { Container } from '@/components/ui/Container';
-import { GalleryGrid } from '@/components/gallery/GalleryGrid';
+import { GalleryGrid, type GalleryImage } from '@/components/gallery/GalleryGrid';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -17,27 +17,87 @@ export const metadata = constructMetadata({
   path: '/galeri',
 });
 
-const GALLERY_IMAGES = [
-  '/images/neongaleri2.jpeg',
-  '/images/neongaleri3.jpeg',
-  '/images/neongaleri12.jpeg',
-  '/images/neongaleri20.jpeg',
-  '/images/neongaleri1.jpeg',
-  '/images/neongaleri4.jpeg',
-  '/images/neongaleri5.jpeg',
-  '/images/neongaleri6.jpeg',
-  '/images/neongaleri7.jpeg',
-  '/images/neongaleri8.jpeg',
-  '/images/neongaleri9.jpeg',
-  '/images/neongaleri10.jpeg',
-  '/images/neongaleri11.jpeg',
-  '/images/neongaleri13.jpeg',
-  '/images/neongaleri14.jpeg',
-  '/images/neongaleri15.jpeg',
-  '/images/neongaleri16.jpeg',
-  '/images/neongaleri17.jpeg',
-  '/images/neongaleri18.jpeg',
-  '/images/neongaleri19.jpeg',
+const GALLERY_IMAGES: GalleryImage[] = [
+  {
+    src: '/images/neongaleri2.jpeg',
+    alt: 'Şehir içinde bariyer kenarında kayar kasa çekici üzerinde taşınan siyah coupe tipi araç',
+  },
+  {
+    src: '/images/neongaleri3.jpeg',
+    alt: 'Kayar kasa çekici üzerine yüklenmiş siyah SUV araç',
+  },
+  {
+    src: '/images/neongaleri12.jpeg',
+    alt: 'Aydınlatmalı bir alanda kayar kasa çekici üzerinde taşınan beyaz sedan araç',
+  },
+  {
+    src: '/images/neongaleri20.jpeg',
+    alt: 'Yüksek binanın önünde siyah araç taşıyan kayar kasa çekici',
+  },
+  {
+    src: '/images/neongaleri1.jpeg',
+    alt: 'Gece, kayar kasa çekici üzerinde taşınan gri coupe tipi araç',
+  },
+  {
+    src: '/images/neongaleri4.jpeg',
+    alt: 'Oto servis dükkanlarının önünde kayar kasa çekici üzerinde taşınan siyah minibüs',
+  },
+  {
+    src: '/images/neongaleri5.jpeg',
+    alt: 'Gün batımında kayar kasa çekici üzerinde taşınan beyaz hatchback araç',
+  },
+  {
+    src: '/images/neongaleri6.jpeg',
+    alt: 'Gece, ışıkları yanan kayar kasa çekici üzerinde taşınan siyah sedan araç',
+  },
+  {
+    src: '/images/neongaleri7.jpeg',
+    alt: 'Gece arkadan görünüm: kayar kasa çekici üzerinde taşınan siyah araç ve çekici stop lambaları',
+  },
+  {
+    src: '/images/neongaleri8.jpeg',
+    alt: 'Güneşli bir sokakta kayar kasa çekici üzerinde taşınan koyu renk panelvan araç',
+  },
+  {
+    src: '/images/neongaleri9.jpeg',
+    alt: 'Apartman önünde kayar kasa çekici üzerinde taşınan beyaz araç',
+  },
+  {
+    src: '/images/neongaleri10.jpeg',
+    alt: 'Oto servis atölyesinde kayar kasa çekici üzerinde taşınan beyaz hatchback araç',
+  },
+  {
+    src: '/images/neongaleri11.jpeg',
+    alt: 'Akşam saatlerinde mahalle caddesinde kayar kasa çekici üzerinde taşınan siyah araç',
+  },
+  {
+    src: '/images/neongaleri13.jpeg',
+    alt: 'Kayar kasa çekici üzerinde taşınan yeşil renkli klasik station wagon araç',
+  },
+  {
+    src: '/images/neongaleri14.jpeg',
+    alt: 'Akaryakıt istasyonunda kayar kasa çekici üzerinde taşınan küçük iş makinesi',
+  },
+  {
+    src: '/images/neongaleri15.jpeg',
+    alt: 'Sokakta kayar kasa çekici üzerine yüklenen küçük ekskavatör',
+  },
+  {
+    src: '/images/neongaleri16.jpeg',
+    alt: 'Kayar kasa çekici üzerinde taşınan gri renkli minibüs',
+  },
+  {
+    src: '/images/neongaleri17.jpeg',
+    alt: 'Gece, ışıkları yanan kayar kasa çekici üzerinde taşınan koyu renk sedan araç',
+  },
+  {
+    src: '/images/neongaleri18.jpeg',
+    alt: 'Gece sokakta park halindeki, uyarı ışıkları yanan boş kayar kasa çekici',
+  },
+  {
+    src: '/images/neongaleri19.jpeg',
+    alt: 'Yüksek binanın önünde brandayla örtülü bir araç taşıyan kayar kasa çekici',
+  },
 ];
 
 export default function GaleriPage() {

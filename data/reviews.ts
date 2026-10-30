@@ -1,133 +1,34 @@
 export interface Review {
   id: number;
+  /** Public Google display name, shortened to first name + initial. */
   name: string;
-  location: string;
   rating: number;
+  /** Month the review was posted on Google Maps. */
   date: string;
-  service: string;
+  /** Short preview shown on the card. */
   comment: string;
+  /** Full review text, copied from the Google Maps listing (emojis removed). */
   fullComment: string;
 }
 
+// Rating summary shown on the Google Maps listing "Bakırköy Çekici Neon Oto
+// Kurtarıcı". Update when the listing changes.
+export const GOOGLE_REVIEWS = {
+  rating: 5.0,
+  count: 3,
+  url: 'https://www.google.com/maps?cid=13357453080096310059',
+} as const;
+
+// Only real Google Maps reviews belong here. Never add reviews that did not
+// come from a customer on the listing.
 export const REVIEWS: Review[] = [
   {
     id: 1,
-    name: 'Elanur A***',
-    location: 'Bakırköy, İstanbul',
+    name: 'Uğur B.',
     rating: 5,
-    date: 'Eylül 2026',
-    service: 'Hızlı Çekici Kurtarma',
-    comment: 'Aradıktan yaklaşık 10 dakika sonra yanımdaydılar, aracımı hemen alıp götürdüler...',
-    fullComment: 'Aradıktan yaklaşık 10 dakika sonra yanımdaydılar. Aracımı hemen yükleyip götürdüler, hiç beklemedim. Çok memnun kaldım, teşekkür ederim.',
-  },
-  {
-    id: 2,
-    name: 'Uğur B***',
-    location: 'Ataköy, Bakırköy',
-    rating: 5,
-    date: 'Eylül 2026',
-    service: 'Akü Takviye Hizmeti',
-    comment: 'Dörtlüleri açık unutunca akü bitti. Kısa sürede gelip aracı çalıştırdılar...',
-    fullComment: 'Dörtlüleri açık unuttuğum için akü tamamen bitmişti. Kısa sürede gelip takviye cihazıyla aracı çalıştırdılar. Fiyat da gayet makuldü, teşekkürler.',
-  },
-  {
-    id: 3,
-    name: 'Ömer Asaf A***',
-    location: 'Florya, İstanbul',
-    rating: 5,
-    date: 'Ağustos 2026',
-    service: 'Özel Çekici Kurtarma',
-    comment: 'Aracım park yerinde çalışmadı. Gelen birkaç çekici çıkaramadı, NEON hallettiler...',
-    fullComment: 'Aracım park halindeyken çalışmadı. Önce birkaç çekici geldi ama park yerinden çıkaramadıkları için geri döndüler. NEON Oto Kurtarma geldi, çok pratik bir şekilde aracı yükledi. Çok teşekkürler.',
-  },
-  {
-    id: 4,
-    name: 'Furkan Z***',
-    location: 'Yeşilköy, Bakırköy',
-    rating: 5,
-    date: 'Ağustos 2026',
-    service: 'Basık Araç Çekici',
-    comment: 'Aracım alçak olduğu için çoğu çekici almak istemedi. NEON zarar vermeden yükledi...',
-    fullComment: 'Aracım çok alçak olduğu için aradığım çekicilerin çoğu alamayacağını söyledi. NEON Oto Kurtarma hiçbir zarar vermeden sorunsuzca yükledi. Emeğinize sağlık.',
-  },
-  {
-    id: 5,
-    name: 'Serkan Y***',
-    location: 'Küçükçekmece, İstanbul',
-    rating: 5,
-    date: 'Ağustos 2026',
-    service: 'Gece Kurtarma Hizmeti',
-    comment: 'Gece otobanda arızalandım, konumu gönderdikten kısa süre sonra geldiler...',
-    fullComment: 'Gece otobanda arızalandım. Konumumu gönderdikten kısa süre sonra yanımdaydılar. Şoför arkadaş hem dikkatli hem de işini bilen biriydi. Yol ortasında kalmanın stresinden kurtardığınız için sağ olun.',
-  },
-  {
-    id: 6,
-    name: 'Merve & Kaan T***',
-    location: 'Basın Ekspres, Bakırköy',
-    rating: 5,
-    date: 'Temmuz 2026',
-    service: '7/24 Yol Yardım',
-    comment: 'Yola çıkmadan önce araç durdu. WhatsApp\'tan konum atmak çok kolaydı...',
-    fullComment: 'Şehir dışına çıkacaktık, tam Basın Ekspres yolunda araç durdu. WhatsApp\'tan konum göndermek çok kolay oldu. Yaklaşık 15 dakikada yanımıza gelip aracı en yakın servise bıraktılar.',
-  },
-  {
-    id: 7,
-    name: 'Gökhan D***',
-    location: 'Zeytinburnu, İstanbul',
-    rating: 5,
-    date: 'Temmuz 2026',
-    service: 'Otomatik Vites Taşıma',
-    comment: 'Otomatik vites aracın şanzımanı arızalıydı. Tekerleklere zarar vermeden yüklediler...',
-    fullComment: 'Aracım otomatik vitesli ve şanzımanında arıza vardı, taşınması biraz özen isteyen bir işti. Özel ekipmanla tekerleklere zarar vermeden gayet pratik şekilde yüklediler. İşini bilen bir ekip.',
-  },
-  {
-    id: 8,
-    name: 'Bihter N***',
-    location: 'Bahçelievler, İstanbul',
-    rating: 5,
-    date: 'Temmuz 2026',
-    service: 'Lastik Değişimi & Yardım',
-    comment: 'Lastiğe çivi batıp inince ne yapacağımı bilemedim, çok kısa sürede geldiler...',
-    fullComment: 'Lastiğime çivi batıp indi, ne yapacağımı bilemedim. Yedek lastiği takmaları için NEON Oto Kurtarma\'yı aradım. Çok kısa sürede gelip işi hızlıca hallettiler. Güler yüzlü ve dürüst biriydi.',
-  },
-  {
-    id: 9,
-    name: 'Selin & Hakan K***',
-    location: 'Zeytinburnu, İstanbul',
-    rating: 5,
-    date: 'Haziran 2026',
-    service: 'Kaza Sonrası Kurtarma',
-    comment: 'Ufak bir kazadan sonra araç hareket etmiyordu. Çok sakin ve hızlı yaklaştılar...',
-    fullComment: 'Ufak bir kaza yaptık ve araç hareket edemez hale geldi, çok stresliydik. Ekip o kadar sakin ve hızlı davrandı ki içimiz rahatladı. Sigorta ve servis sürecinde de yol gösterdiler. Çok teşekkür ederiz.',
-  },
-  {
-    id: 10,
-    name: 'Tolga B***',
-    location: 'Bahçelievler, İstanbul',
-    rating: 5,
-    date: 'Haziran 2026',
-    service: 'Şehir İçi Oto Çekici',
-    comment: 'Videolarını takip ediyordum. Başıma iş gelince direkt onları aradım...',
-    fullComment: 'Sosyal medyada videolarını takip ediyordum, başıma bir iş gelince direkt onları aradım. Videolarda gördüğüm profesyonellik sahada da aynıydı.',
-  },
-  {
-    id: 11,
-    name: 'Emrah S***',
-    location: 'Avcılar, İstanbul',
-    rating: 5,
-    date: 'Mayıs 2026',
-    service: 'VIP Araç Taşıma',
-    comment: 'Sıfır km aracı bayiden servise taşıttım, tek bir çizik bile olmadı...',
-    fullComment: 'Sıfır km aracımı bayiden çıkışta servise taşıttım. Yüklerken gösterdikleri özen gerçekten takdire değerdi. Tek bir çizik bile olmadan teslim ettiler.',
-  },
-  {
-    id: 12,
-    name: 'Cemil H***',
-    location: 'Yenibosna, İstanbul',
-    rating: 5,
-    date: 'Mayıs 2026',
-    service: '7/24 Acil Yol Yardım',
-    comment: 'Gece yakıtım bitti, yolda kaldım. Aradıktan kısa süre sonra yardım geldi...',
-    fullComment: 'Gece yakıtım bitti ve yolda kaldım. Aradıktan kısa süre sonra yardıma geldiler. Hem çok kibarlardı hem de sorunu tamamen çözdüler.',
+    date: 'Ekim 2026',
+    comment: 'Bakırköyde hızlı ve güvenilir çekici arayanlara kesinlikle tavsiye ederim.',
+    fullComment:
+      'Bakırköyde hızlı ve güvenilir çekici arayanlara kesinlikle tavsiye ederim. Güvenin, kalitenin ve profesyonelliğin adresi Neon Oto Kurtarıcı! Zor anlarda hızlı müdahalesi, güler yüzlü yaklaşımı ve güvenilir hizmet anlayışıyla gerçekten fark yaratan bir işletme. Aracınızı gönül rahatlığıyla emanet edebileceğiniz, işini severek ve hakkıyla yapan kaliteli bir ekip. Müşteri memnuniyetini her zaman ön planda tutan, çözüm odaklı ve son derece ilgili bir hizmet anlayışına sahip. Böyle işini düzgün yapan esnafların her zaman desteklenmesi gerektiğine inanıyorum. Kesinlikle tavsiye ederim! Neon Oto Kurtarıcı’ya bol kazançlar, hayırlı işler ve açık yollar diliyorum.',
   },
 ];

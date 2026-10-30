@@ -1,14 +1,16 @@
 import { constructMetadata } from '@/lib/seo';
+import { SITE_CONFIG } from '@/data/site';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { QuickContactSection } from '@/components/sections/QuickContactSection';
 import { ServicesSection } from '@/components/sections/ServicesSection';
+import { RegionsSection } from '@/components/sections/RegionsSection';
 import { LocationContactSection } from '@/components/sections/LocationContactSection';
+import { HomeFaqSection } from '@/components/sections/HomeFaqSection';
 import { FinalCtaSection } from '@/components/sections/FinalCtaSection';
 
 export const metadata = constructMetadata({
-  title: 'NEON Oto Kurtarma | İstanbul 7/24 Oto Çekici & Yol Yardım',
-  description:
-    'NEON Oto Kurtarma, Bakırköy merkezli İstanbul genelinde 7/24 oto çekici, araç kurtarma ve yol yardım hizmeti verir. Hemen arayın veya WhatsApp\'tan konumunuzu gönderin.',
+  title: SITE_CONFIG.defaultMeta.title,
+  description: SITE_CONFIG.defaultMeta.description,
   path: '/',
 });
 
@@ -18,7 +20,9 @@ export default function HomePage() {
       <HeroSection />
       <QuickContactSection />
       <ServicesSection />
+      <RegionsSection />
       <LocationContactSection />
+      <HomeFaqSection />
       <FinalCtaSection />
     </>
   );

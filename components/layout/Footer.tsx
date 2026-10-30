@@ -38,6 +38,13 @@ export function Footer() {
               >
                 {SITE_CONFIG.phone}
               </TrackedPhoneLink>
+              <TrackedPhoneLink
+                href={SITE_CONFIG.phone2TelLink}
+                location="footer_2"
+                className="block text-xl md:text-2xl font-bold tracking-tight text-white/95 hover:text-black transition-colors"
+              >
+                {SITE_CONFIG.phone2}
+              </TrackedPhoneLink>
             </div>
 
             <div className="space-y-3 pt-1">
@@ -113,6 +120,11 @@ export function Footer() {
               <li>
                 <Link href="/hizmetler" className="hover:text-black transition-colors block py-0.5">
                   Hizmetler
+                </Link>
+              </li>
+              <li>
+                <Link href="/hizmet-bolgeleri" className="hover:text-black transition-colors block py-0.5">
+                  Hizmet Bölgeleri
                 </Link>
               </li>
               <li>

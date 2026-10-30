@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Playfair_Display } from 'next/font/google';
 import { SITE_CONFIG } from '@/data/site';
 import { SERVICES_DATA } from '@/data/services';
@@ -17,9 +18,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = constructMetadata({
-  title: 'Hizmetlerimiz | NEON Oto Kurtarma',
+  title: 'Oto Kurtarma, Çekici & Akü Takviye Hizmetleri | NEON',
   description:
-    'NEON Oto Kurtarma 7/24 oto kurtarma ve yol yardım hizmetleri: Arıza/kaza çekici, VIP transfer, akü takviye ve lastik değişimi.',
+    'Bakırköy merkezli, tüm İstanbul\'a 7/24 oto kurtarma ve yol yardım: arıza/kaza çekici, VIP araç transferi, akü takviye ve lastik değişimi.',
   path: '/hizmetler',
 });
 
@@ -126,7 +127,13 @@ export default function HizmetlerPage() {
                   <p className="text-base md:text-lg lg:text-xl text-[#444444] leading-relaxed font-normal">
                     {service.description}
                   </p>
-                  <div>
+                  <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                    <Link
+                      href={`/hizmetler/${service.slug}`}
+                      className="text-sm font-bold text-black hover:text-[#00BF63] transition-colors"
+                    >
+                      Hizmet detayı &rarr;
+                    </Link>
                     <a
                       href={SITE_CONFIG.phoneTelLink}
                       className="inline-flex items-center text-sm font-bold text-white bg-[#00BF63] hover:bg-[#00a857] px-5 py-2.5 transition-colors gap-2 group"

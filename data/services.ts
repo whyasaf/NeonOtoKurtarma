@@ -49,4 +49,14 @@ export const SERVICES_DATA: ServiceItem[] = [
     description:
       'Patlayan veya hasar gören lastiklerde bulunduğunuz noktaya ulaşarak gerekli lastik değişimi desteğini sağlıyoruz. Amaç, yolda geçirdiğiniz süreyi mümkün olduğunca azaltarak güvenli şekilde hareket etmenizi sağlamak.',
   },
+  {
+    id: 'kayar-kasa-ahtapot',
+    slug: 'kayar-kasa-ahtapot-cekici',
+    number: '05',
+    title: 'KAYAR KASA / AHTAPOT / APARATLI',
+    meta: ['ÖZEL EKİPMAN', '7/24'],
+    shortDescription: 'Sürülemeyen, hasarlı ya da zor yerde kalan araçlar için kayar kasa, ahtapot ve aparatlı çekici.',
+    description:
+      'Sürülemeyen, hasarlı ya da dar ve erişimi zor bir yerde kalan araçlar için kayar kasa, ahtapot ve aparatlı çekici hizmeti veriyoruz. Aracınızın durumuna göre uygun ekipmanı birlikte belirliyoruz.',
+  },
 ];

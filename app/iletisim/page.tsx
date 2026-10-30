@@ -15,9 +15,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = constructMetadata({
-  title: 'İletişim & Lokasyon | NEON Oto Kurtarma',
+  title: 'İletişim | Bakırköy Oto Çekici 7/24 Hat | NEON',
   description:
-    'NEON Oto Kurtarma 7/24 direk telefon (0545 154 19 10) ve WhatsApp konum paylaşım hattı. Bakırköy merkezli İstanbul oto kurtarma ve acil yol yardım.',
+    'NEON Oto Kurtarma 7/24 telefon (0545 154 19 10) ve WhatsApp konum hattı. Bakırköy merkezli, tüm İstanbul\'a oto çekici ve acil yol yardım.',
   path: '/iletisim',
 });
 
@@ -94,6 +94,16 @@ export default function IletisimPage() {
                   <span>Bakırköy &amp; Tüm İstanbul</span>
                 </div>
                 <div>
+                  <span className="font-semibold text-black block text-xs uppercase tracking-wider">İkinci Hat</span>
+                  <TrackedPhoneLink
+                    href={SITE_CONFIG.phone2TelLink}
+                    location="iletisim_info_2"
+                    className="hover:text-[#00BF63] transition-colors"
+                  >
+                    {SITE_CONFIG.phone2}
+                  </TrackedPhoneLink>
+                </div>
+                <div>
                   <span className="font-semibold text-black block text-xs uppercase tracking-wider">Çalışma Saatleri</span>
                   <span className="text-[#00BF63] font-bold">7/24 Hizmet</span>
                 </div>
@@ -138,7 +148,7 @@ export default function IletisimPage() {
             <div className="w-full h-[340px] sm:h-[400px] md:h-[480px] border border-[#E5E5E5] overflow-hidden bg-gray-100">
               <iframe
                 title="NEON Oto Kurtarma Bakırköy Lokasyonu"
-                src="https://maps.google.com/maps?q=%C3%87a%C4%9F+Sokak+No:22,+Zuhuratbaba,+Bak%C4%B1rk%C3%B6y,+%C4%B0stanbul&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                src={`https://maps.google.com/maps?q=${SITE_CONFIG.location.geo.latitude},${SITE_CONFIG.location.geo.longitude}&z=17&output=embed`}
                 className="w-full h-full border-0 grayscale contrast-125 hover:grayscale-0 transition-all duration-300"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

@@ -67,3 +67,36 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
 ];
 
+
+export const HOME_FAQ_ITEMS: FaqItem[] = [
+  {
+    id: 'home-faq-1',
+    question: 'Çekici numarası nedir?',
+    answer:
+      'NEON Oto Kurtarma çekici numarası 0545 154 19 10. Gece gündüz, hafta sonu dahil 7/24 aranabilir; WhatsApp üzerinden de ulaşabilirsiniz.',
+  },
+  {
+    id: 'home-faq-2',
+    question: 'En yakın çekiciyi nasıl çağırırım?',
+    answer:
+      'Bizi arayın ya da WhatsApp\'tan konumunuzu gönderin. Bulunduğunuz yere göre size en yakın ekibimizi yönlendiriyoruz. Merkezimiz Bakırköy\'de.',
+  },
+  {
+    id: 'home-faq-3',
+    question: 'Nöbetçi çekici gece ve hafta sonu da çalışıyor mu?',
+    answer:
+      'Evet. 7/24 nöbetçi çekici ve oto kurtarma hizmeti veriyoruz; gece, hafta sonu ve resmi tatillerde de arayabilirsiniz.',
+  },
+  {
+    id: 'home-faq-4',
+    question: 'Hangi bölgelere hizmet veriyorsunuz?',
+    answer:
+      'Bakırköy merkezli olarak İstanbul Avrupa Yakası başta olmak üzere tüm İstanbul\'a hizmet veriyoruz. Bakırköy, Ataköy, Florya, Zeytinburnu, Bahçelievler, Fatih ve çevre ilçeler için bölge sayfalarımıza bakabilirsiniz.',
+  },
+  {
+    id: 'home-faq-5',
+    question: 'Acil araç çekme hizmetinde ne yapıyorsunuz?',
+    answer:
+      'Arıza yapan ya da kaza geçiren aracı bulunduğu noktadan alıp servise, otoparka ya da belirttiğiniz adrese güvenle taşıyoruz. Gerekirse akü takviyesi ve lastik değişimi de yapıyoruz.',
+  },
+];

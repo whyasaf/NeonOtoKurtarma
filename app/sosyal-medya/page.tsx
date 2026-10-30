@@ -107,7 +107,7 @@ export default function SosyalMedyaPage() {
                 <div className="flex items-center gap-2 border border-gray-200 px-3 py-1.5 rounded-[6px] bg-white">
                   <Image
                     src="/images/neonlogo.png"
-                    alt="NEON Logo"
+                    alt=""
                     width={18}
                     height={18}
                     className="object-contain"
@@ -168,7 +168,7 @@ export default function SosyalMedyaPage() {
                 <div className="flex items-center gap-2 border border-gray-200 px-3 py-1.5 rounded-[6px] bg-white">
                   <Image
                     src="/images/neonlogo.png"
-                    alt="NEON Logo"
+                    alt=""
                     width={18}
                     height={18}
                     className="object-contain"
@@ -229,7 +229,7 @@ export default function SosyalMedyaPage() {
                 <div className="flex items-center gap-2 border border-gray-200 px-3 py-1.5 rounded-[6px] bg-white">
                   <Image
                     src="/images/neonlogo.png"
-                    alt="NEON Logo"
+                    alt=""
                     width={18}
                     height={18}
                     className="object-contain"

@@ -4,8 +4,13 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import { ModalPortal } from '@/components/ui/ModalPortal';
 
+export interface GalleryImage {
+  src: string;
+  alt: string;
+}
+
 interface GalleryGridProps {
-  images: string[];
+  images: GalleryImage[];
 }
 
 export function GalleryGrid({ images }: GalleryGridProps) {
@@ -42,7 +47,7 @@ export function GalleryGrid({ images }: GalleryGridProps) {
   // 2. 1 wide horizontal full banner
   // 3. 4 items side-by-side
   // 4. 2 square/medium items side-by-side
-  const groups: { items: string[]; startIndex: number }[] = [];
+  const groups: { items: GalleryImage[]; startIndex: number }[] = [];
   for (let i = 0; i < images.length; i += 10) {
     groups.push({
       items: images.slice(i, i + 10),
@@ -50,9 +55,9 @@ export function GalleryGrid({ images }: GalleryGridProps) {
     });
   }
 
-  const renderCard = (src: string, globalIndex: number, aspectClass: string) => (
+  const renderCard = (image: GalleryImage, globalIndex: number, aspectClass: string) => (
     <div
-      key={src}
+      key={image.src}
       onClick={() => setSelectedIndex(globalIndex)}
       className={`group relative overflow-hidden bg-[#00BF63] p-[2px] cursor-pointer border border-[#00BF63] hover:shadow-[0_0_25px_rgba(0,191,99,0.4)] transition-all duration-300 ${aspectClass}`}
     >
@@ -62,8 +67,8 @@ export function GalleryGrid({ images }: GalleryGridProps) {
       {/* Inner Image Frame */}
       <div className="relative w-full h-full overflow-hidden bg-gray-100">
         <Image
-          src={src}
-          alt={`NEON Oto Kurtarma Operasyon Görseli ${globalIndex + 1}`}
+          src={image.src}
+          alt={image.alt}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -94,7 +99,7 @@ export function GalleryGrid({ images }: GalleryGridProps) {
               {/* Row 1: 3 Items Side-by-Side */}
               {row1.length > 0 && (
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
-                  {row1.map((src, i) => renderCard(src, baseIdx + i, 'aspect-[4/3] sm:aspect-[4/3]'))}
+                  {row1.map((image, i) => renderCard(image, baseIdx + i, 'aspect-[4/3] sm:aspect-[4/3]'))}
                 </div>
               )}
 
@@ -108,14 +113,14 @@ export function GalleryGrid({ images }: GalleryGridProps) {
               {/* Row 3: 4 Items Side-by-Side */}
               {row3.length > 0 && (
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6">
-                  {row3.map((src, i) => renderCard(src, baseIdx + 4 + i, 'aspect-square'))}
+                  {row3.map((image, i) => renderCard(image, baseIdx + 4 + i, 'aspect-square'))}
                 </div>
               )}
 
               {/* Row 4: 2 Medium/Square Items Side-by-Side */}
               {row4.length > 0 && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-                  {row4.map((src, i) => renderCard(src, baseIdx + 8 + i, 'aspect-[16/10]'))}
+                  {row4.map((image, i) => renderCard(image, baseIdx + 8 + i, 'aspect-[16/10]'))}
                 </div>
               )}
             </div>
@@ -169,8 +174,8 @@ export function GalleryGrid({ images }: GalleryGridProps) {
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={images[selectedIndex]}
-              alt={`NEON Oto Kurtarma Operasyon Görseli ${selectedIndex + 1}`}
+              src={images[selectedIndex].src}
+              alt={images[selectedIndex].alt}
               fill
               priority
               className="object-contain"

@@ -12,7 +12,7 @@ export function LocationContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start text-center lg:text-left">
           {/* Typographic Focal Point */}
           <div className="lg:col-span-6 space-y-4 md:space-y-6">
-            <Heading level="display" className="text-[#000000] text-3xl sm:text-5xl md:text-6xl">
+            <Heading level="display" as="h2" className="text-[#000000] text-3xl sm:text-5xl md:text-6xl">
               BAKIRKÖY / İSTANBUL
             </Heading>
 

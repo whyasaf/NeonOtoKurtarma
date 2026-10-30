@@ -31,7 +31,7 @@ export function FeaturedReviewsSection() {
               </span>
             </h2>
             <p className="text-[#666666] max-w-xl mx-auto text-base md:text-lg">
-              Bakırköy ve İstanbul genelindeki 7/24 oto kurtarma müdahalelerimiz hakkında yapılan gerçek sürücü değerlendirmeleri.
+              Google Haritalar&apos;da yayınlanan sürücü yorumları.
             </p>
           </div>
 
@@ -47,7 +47,7 @@ export function FeaturedReviewsSection() {
                   <div className="border-b border-gray-100 pb-3 space-y-1.5">
                     <div className="flex text-[#00BF63] text-sm">★ ★ ★ ★ ★</div>
                     <div className="text-[11px] font-semibold text-[#00BF63] uppercase tracking-wider block">
-                      {review.service}
+                      Google Haritalar yorumu
                     </div>
                   </div>
 
@@ -61,7 +61,7 @@ export function FeaturedReviewsSection() {
                     <h3 className="text-sm font-bold text-black group-hover:text-[#00BF63] transition-colors">
                       {review.name}
                     </h3>
-                    <span className="text-[11px] text-gray-500 font-medium">{review.location}</span>
+
                   </div>
 
                   <span className="text-xs font-bold uppercase tracking-wider text-black group-hover:text-[#00BF63] group-hover:translate-x-1 transition-all flex items-center gap-1">
@@ -111,10 +111,8 @@ export function FeaturedReviewsSection() {
               <h3 className="text-xl font-extrabold text-black tracking-tight">
                 {selectedReview.name}
               </h3>
-              <div className="flex items-center gap-3 text-xs font-semibold text-gray-500">
-                <span>{selectedReview.location}</span>
-                <span>&bull;</span>
-                <span className="text-[#00BF63]">{selectedReview.service}</span>
+              <div className="text-xs font-semibold text-[#00BF63] uppercase tracking-wider">
+                Google Haritalar yorumu
               </div>
             </div>
 

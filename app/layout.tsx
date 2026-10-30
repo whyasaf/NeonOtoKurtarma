@@ -28,14 +28,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
   const primaryTrackingId = gaId || adsId;
 
   return (
-    <html lang="tr" className={plusJakarta.className}>
+    <html lang="tr" data-scroll-behavior="smooth" className={plusJakarta.className}>
       <head>
-        <link rel="icon" href="/images/neonlogo.png?v=3" type="image/png" media="(prefers-color-scheme: light)" />
-        <link rel="icon" href="/images/neonlogo-white.png?v=3" type="image/png" media="(prefers-color-scheme: dark)" />
-        <link rel="shortcut icon" href="/images/neonlogo.png?v=3" type="image/png" media="(prefers-color-scheme: light)" />
-        <link rel="shortcut icon" href="/images/neonlogo-white.png?v=3" type="image/png" media="(prefers-color-scheme: dark)" />
-        <link rel="apple-touch-icon" href="/images/neonlogo.png?v=3" media="(prefers-color-scheme: light)" />
-        <link rel="apple-touch-icon" href="/images/neonlogo-white.png?v=3" media="(prefers-color-scheme: dark)" />
         <StructuredData />
         {primaryTrackingId && (
           <>

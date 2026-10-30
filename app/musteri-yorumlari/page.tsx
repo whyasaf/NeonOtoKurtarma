@@ -9,7 +9,7 @@ import { Text } from '@/components/ui/Typography';
 import { WhatsappLocationButton } from '@/components/ui/WhatsappLocationButton';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { ModalPortal } from '@/components/ui/ModalPortal';
-import { REVIEWS, type Review } from '@/data/reviews';
+import { REVIEWS, GOOGLE_REVIEWS, type Review } from '@/data/reviews';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -45,11 +45,8 @@ export default function MusteriYorumlariPage() {
                   ★ ★ ★ ★ ★
                 </div>
                 <span className="text-sm font-extrabold text-black">
-                  5.0 / 5.0 Puan
+                  {GOOGLE_REVIEWS.rating.toFixed(1).replace('.', ',')} Puan &bull; Google Haritalar&apos;da {GOOGLE_REVIEWS.count} yorum
                 </span>
-              </div>
-              <div className="text-xs font-semibold text-[#777777] uppercase tracking-wider">
-                &bull; %100 Müşteri Memnuniyeti
               </div>
               <div className="text-xs font-semibold text-[#777777] uppercase tracking-wider">
                 &bull; Bakırköy & İstanbul Genel
@@ -81,7 +78,7 @@ export default function MusteriYorumlariPage() {
                       </span>
                     </div>
                     <div className="text-[11px] font-semibold text-[#00BF63] uppercase tracking-wider block">
-                      {review.service}
+                      Google Haritalar yorumu
                     </div>
                   </div>
 
@@ -97,9 +94,7 @@ export default function MusteriYorumlariPage() {
                     <h3 className="text-base font-bold text-black group-hover:text-[#00BF63] transition-colors">
                       {review.name}
                     </h3>
-                    <span className="text-xs text-gray-500 font-medium">
-                      {review.location}
-                    </span>
+
                   </div>
 
                   <span className="text-xs font-bold uppercase tracking-wider text-black group-hover:text-[#00BF63] group-hover:translate-x-1 transition-all flex items-center gap-1">
@@ -108,6 +103,17 @@ export default function MusteriYorumlariPage() {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="pt-10 text-center">
+            <a
+              href={GOOGLE_REVIEWS.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-sm font-bold uppercase tracking-wider text-black hover:text-[#00BF63] transition-colors gap-2 border-b-2 border-black pb-1 hover:border-[#00BF63]"
+            >
+              <span>Tüm yorumları Google Haritalar&apos;da gör</span>
+              <span>&rarr;</span>
+            </a>
           </div>
         </Container>
       </Section>
@@ -192,10 +198,8 @@ export default function MusteriYorumlariPage() {
               <h3 className="text-xl font-extrabold text-black tracking-tight">
                 {selectedReview.name}
               </h3>
-              <div className="flex items-center gap-2 text-xs font-semibold text-gray-500">
-                <span>{selectedReview.location}</span>
-                <span>&bull;</span>
-                <span className="text-[#00BF63]">{selectedReview.service}</span>
+              <div className="text-xs font-semibold text-[#00BF63] uppercase tracking-wider">
+                Google Haritalar yorumu
               </div>
             </div>
 
